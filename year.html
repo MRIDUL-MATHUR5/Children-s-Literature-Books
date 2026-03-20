@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Year Articles</title>
+
+<style>
+body{
+font-family:Arial;
+margin:40px;
+}
+.pdf{
+display:flex;
+justify-content:space-between;
+padding:10px;
+background:#f5f5f5;
+margin:8px;
+}
+.download{
+background:#2e4fa2;
+color:white;
+padding:6px 12px;
+text-decoration:none;
+border-radius:4px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 id="title"></h1>
+
+<div id="list"></div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const year = params.get("year");
+
+document.getElementById("title").innerText = year + " Journal Articles";
+
+// TEMP SAMPLE DATA
+const data = [
+  {name:"Article 1", link:"#"},
+  {name:"Article 2", link:"#"}
+];
+
+let html = "";
+
+data.forEach(file => {
+  html += `
+    <div class="pdf">
+      <span>${file.name}</span>
+      <a class="download" href="${file.link}">Download</a>
+    </div>
+  `;
+});
+
+document.getElementById("list").innerHTML = html;
+
+</script>
+
+</body>
+</html>
