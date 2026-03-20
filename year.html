@@ -2,20 +2,36 @@
 <html>
 
 <head>
+
 <title>Year Articles</title>
 
 <style>
+
 body{
 font-family:Arial;
 margin:40px;
+max-width:1000px;
+margin:auto;
+background:#f8f9fb;
 }
+
+h1{
+color:#1f3c88;
+}
+
+h3{
+margin-top:30px;
+}
+
 .pdf{
 display:flex;
 justify-content:space-between;
 padding:10px;
-background:#f5f5f5;
-margin:8px;
+background:white;
+margin:8px 0;
+border-radius:6px;
 }
+
 .download{
 background:#2e4fa2;
 color:white;
@@ -23,6 +39,7 @@ padding:6px 12px;
 text-decoration:none;
 border-radius:4px;
 }
+
 </style>
 
 </head>
@@ -35,26 +52,56 @@ border-radius:4px;
 
 <script>
 
+// Get year from URL
 const params = new URLSearchParams(window.location.search);
 const year = params.get("year");
 
+// Title
 document.getElementById("title").innerText = year + " Journal Articles";
 
-// TEMP SAMPLE DATA
-const data = [
-  {name:"Article 1", link:"#"},
-  {name:"Article 2", link:"#"}
+// 👇 CHANGE THIS DATA FOR EACH YEAR
+let data = [];
+
+if(year === "1981"){
+
+data = [
+  {
+    section: "Oct-Dec Vol 1 No 1",
+    files: [
+      {
+        name: "Nirankar Dev Sewak History",
+        link: "PASTE_LINK_1"
+      },
+      {
+        name: "Shankar Author and Illustrator",
+        link: "PASTE_LINK_2"
+      },
+      {
+        name: "Writing Fiction for Children",
+        link: "PASTE_LINK_3"
+      }
+    ]
+  }
 ];
 
+}
+
+// Render
 let html = "";
 
-data.forEach(file => {
-  html += `
-    <div class="pdf">
-      <span>${file.name}</span>
-      <a class="download" href="${file.link}">Download</a>
-    </div>
-  `;
+data.forEach(section => {
+
+  html += `<h3>${section.section}</h3>`;
+
+  section.files.forEach(file => {
+    html += `
+      <div class="pdf">
+        <span>${file.name}</span>
+        <a class="download" href="${file.link}">Download</a>
+      </div>
+    `;
+  });
+
 });
 
 document.getElementById("list").innerHTML = html;
