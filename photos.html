@@ -226,7 +226,7 @@ function updateLightbox(){
   const img = document.getElementById("lightbox-img");
   const counter = document.getElementById("counter");
 
-img.src = `https://drive.google.com/uc?id=${images[currentIndex].id}`;
+img.src = `https://drive.google.com/thumbnail?id=${images[currentIndex].id}&sz=w2000`;
   counter.innerText = `${currentIndex + 1} / ${images.length}`;
 }
 
