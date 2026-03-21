@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Photo Gallery</title>
+
+<style>
+body{
+  font-family: Arial;
+  margin: 40px auto;
+  max-width: 1000px;
+  background: #f8f9fb;
+}
+
+h1{
+  color:#1f3c88;
+}
+
+.gallery{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 15px;
+}
+
+.image-card img{
+  width: 100%;
+  border-radius: 10px;
+}
+
+.buttons{
+  display:flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.buttons a{
+  text-decoration:none;
+  background:black;
+  color:white;
+  padding:5px 10px;
+  border-radius:5px;
+  font-size:12px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Photo Gallery</h1>
+
+<div class="gallery" id="gallery"></div>
+
+<script>
+
+let images = [
+  { id: "1CXH2P_vhLcmJNN4KuzTcW9voJanzvHSE" },
+  { id: "1kDBzndP_txdnpVg0M-VFyciiL0Tb3TSX" },
+  { id: "1Uj2IOFWVAhXKgN7Tb9XYbEpIDRQYXuqi" },
+  { id: "12l7DQ7lgch4scaceAxygUvl5mHzI29N3" },
+  { id: "1NvGJCbPgyDewTBLHwBNQPXTFq1dWvm8S" },
+  { id: "1FVF4Ocx2R_B2tD6wabjr9vT3rktJT0hP" },
+  { id: "1SokV7Fq3-51KhwUb7oQCQLrq0_KuyVzo" },
+  { id: "1g7cOlSp2YC7a3LQPTwt07-i8cebb9zCB" },
+  { id: "1V_8oV-KOSWp8fwLzWd9V0w-K_RUwqSdZ" },
+  { id: "1JuWtH9414BZiGZ5KbuhZIt4-H8m4yiGZ" }
+];
+
+let html = "";
+
+images.forEach(img => {
+
+  html += `
+    <div class="image-card">
+      <img src="https://drive.google.com/thumbnail?id=${img.id}&sz=w1000">
+      
+      <div class="buttons">
+        <a href="https://drive.google.com/file/d/${img.id}/view" target="_blank">View</a>
+        <a href="https://drive.google.com/uc?export=download&id=${img.id}">Download</a>
+      </div>
+    </div>
+  `;
+
+});
+
+document.getElementById("gallery").innerHTML = html;
+
+</script>
+
+</body>
+</html>
