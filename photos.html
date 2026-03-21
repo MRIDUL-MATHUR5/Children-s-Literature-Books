@@ -8,38 +8,81 @@
 body{
   font-family: Arial;
   margin: 40px auto;
-  max-width: 1000px;
+  max-width: 1100px;
   background: #f8f9fb;
 }
 
 h1{
   color:#1f3c88;
+  margin-bottom: 20px;
 }
 
 .gallery{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 15px;
+  gap: 20px;
+}
+
+.image-card{
+  overflow: hidden;
+  border-radius: 12px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .image-card img{
   width: 100%;
   border-radius: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.image-card:hover img{
+  transform: scale(1.05);
 }
 
 .buttons{
   display:flex;
   justify-content: space-between;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .buttons a{
   text-decoration:none;
-  background:black;
+  background:#1f3c88;
   color:white;
-  padding:5px 10px;
-  border-radius:5px;
+  padding:6px 12px;
+  border-radius:6px;
   font-size:12px;
+}
+
+.buttons a:hover{
+  background:#16306b;
+}
+
+/* 🔥 LIGHTBOX */
+.lightbox{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:10px;
+}
+
+.lightbox.active{
+  display:flex;
 }
 </style>
 
@@ -50,6 +93,9 @@ h1{
 <h1>Photo Gallery</h1>
 
 <div class="gallery" id="gallery"></div>
+  <div class="lightbox" id="lightbox">
+  <img id="lightbox-img">
+</div>
 
 <script>
 
@@ -63,7 +109,45 @@ let images = [
   { id: "1SokV7Fq3-51KhwUb7oQCQLrq0_KuyVzo" },
   { id: "1g7cOlSp2YC7a3LQPTwt07-i8cebb9zCB" },
   { id: "1V_8oV-KOSWp8fwLzWd9V0w-K_RUwqSdZ" },
-  { id: "1JuWtH9414BZiGZ5KbuhZIt4-H8m4yiGZ" }
+  { id: "1JuWtH9414BZiGZ5KbuhZIt4-H8m4yiGZ" },
+  { id: "1GIkojgcYtUl0pIQB9DCikf2V0gLI6kWh" },
+{ id: "17_S-8aurhj-rMrunHm30dnSFXMvbGNBX" },
+{ id: "1FNQu301arhwjX1ECPYXhKJLjBj02WIAI" },
+{ id: "1iVDEHnOB-3dRLx7xga2k6t4eXccFJFkL" },
+{ id: "1lPN2kttfsKP-MZZImNwpiEkn84Hk_uzt" },
+{ id: "1D0Z5VZw5ENACI7DQLuGPMmfeWbB67vg7" },
+{ id: "1EqejmbbIhjmuODyG3szoQBNkavEjV3p7" },
+{ id: "1WLqMhmv6Itjq9OrXGzOKuNFo4bGd83I1" },
+{ id: "1-jYk5sdWP2WUzEoNxzrmYqD5rHtR96GC" },
+{ id: "19lnkWqphPY1ysxW4TH_sw1Ly9eTUjWXp" },
+{ id: "18nhSn6iiRlSWUBWK3xrXAnia9YSgUEOC" },
+{ id: "1gk98cAqHqI0-P9lweRVJUQv87B_G0oI5" },
+{ id: "1nb-F-0Ygj5IgzPmqUVHgdi-AsVfHog_N" },
+{ id: "1G3O6mtF2FkDFdvGEqcwHLIVTwRiNxJf_" },
+{ id: "1_9l5dxa5lTaOqNte2W6rtO4WCe3IxRxg" },
+  { id: "1kEHAns03PEHuZI67_O_UOP0ttRU0QWs5" },
+{ id: "1_7lK-Zu7haPp4OVEzYeYGm-8KvIXJOs8" },
+{ id: "1U8NYKHukKElnAdc2gJH4pR4HM946m0O1" },
+{ id: "19qgeSSHjtEGuYcn-PzxCt337dBB9mGST" },
+{ id: "1M91_fc1cir38n3KgskS8u2OfNH4W78UC" },
+{ id: "1njS4Uce372m8znR0ryLK5LdUkUk3vb47" },
+{ id: "1DkomeHM23VaIMGi2NyOCfdKyjYSw9pwc" },
+{ id: "1yJ463YXd8dktK4cl6pWoZ5hkF0cH5oUC" },
+{ id: "1DizEze3rjaZ2fpMVudLtas-5VPv8fcco" },
+{ id: "1xR2TkXz-5eTEaM80i259EV9vgBMO9AwU" },
+{ id: "1nL0MJg46sFh6bTObz6sKfTyldI4muA0W" },
+{ id: "19u9sUjAf25m6GLjbywQk2ZYtT-NR70fG" },
+{ id: "1M6ucWGsK24wrRbEm4Oh2dcq5UXLyueEO" },
+{ id: "1hPfNKzdTb-1bOJZ6Uv5_pn24pcw50bQz" },
+{ id: "1Qc61GdEcOAHXtHtOQP5tj22xEz7C5le4" },
+{ id: "1tdiqVu1kmImJH7MjWjpH7mlK2uV-LLba" },
+{ id: "1oBnyR73ojnC7M_X58Zq1xW7clk75M79a" },
+{ id: "1Tz6S1IJU5_MeWklhV8aAIqfgwtbjUQcr" },
+{ id: "1SktX1ukI5PbHJ_fSzJ4AXSIn81y0ybUJ" },
+{ id: "1rKa98CASWf4V9KHbwdQdmM_1fa0VXYui" },
+{ id: "1Bs0ckpundj2ZjbqDtOmc-imBIGg51YZF" },
+{ id: "1hcHvnlgBULIqz8OUwParK9Ykg5DR-TRL" },
+{ id: "1k09vk8hjleOmIugd3pwXKNX926m1S2wF" }
 ];
 
 let html = "";
@@ -72,8 +156,8 @@ images.forEach(img => {
 
   html += `
     <div class="image-card">
-      <img src="https://drive.google.com/thumbnail?id=${img.id}&sz=w1000">
-      
+     <img src="https://drive.google.com/thumbnail?id=${img.id}&sz=w1000" 
+     onclick="openLightbox('${img.id}')">
       <div class="buttons">
         <a href="https://drive.google.com/file/d/${img.id}/view" target="_blank">View</a>
         <a href="https://drive.google.com/uc?export=download&id=${img.id}">Download</a>
@@ -84,7 +168,17 @@ images.forEach(img => {
 });
 
 document.getElementById("gallery").innerHTML = html;
+function openLightbox(id){
+  const lightbox = document.getElementById("lightbox");
+  const img = document.getElementById("lightbox-img");
 
+  img.src = `https://drive.google.com/thumbnail?id=${id}&sz=w2000`;
+  lightbox.classList.add("active");
+}
+
+document.getElementById("lightbox").onclick = function(){
+  this.classList.remove("active");
+};
 </script>
 
 </body>
