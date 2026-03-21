@@ -112,6 +112,18 @@ h1{
   color:white;
   font-size:16px;
 }
+  .lightbox{
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.lightbox.active{
+  display:flex;
+  opacity: 1;
+}
+  #prev-btn, #next-btn, #close-btn{
+  user-select:none;
+}
 </style>
 
 </head>
@@ -214,8 +226,7 @@ function updateLightbox(){
   const img = document.getElementById("lightbox-img");
   const counter = document.getElementById("counter");
 
-  img.src = `https://drive.google.com/thumbnail?id=${images[currentIndex].id}&sz=w2000`;
-
+img.src = `https://drive.google.com/uc?id=${images[currentIndex].id}`;
   counter.innerText = `${currentIndex + 1} / ${images.length}`;
 }
 
