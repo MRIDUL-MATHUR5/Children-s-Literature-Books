@@ -84,6 +84,34 @@ h1{
 .lightbox.active{
   display:flex;
 }
+  #close-btn{
+  position:absolute;
+  top:20px;
+  right:30px;
+  color:white;
+  font-size:30px;
+  cursor:pointer;
+}
+
+#prev-btn, #next-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  color:white;
+  font-size:40px;
+  cursor:pointer;
+  padding:10px;
+}
+
+#prev-btn{ left:20px; }
+#next-btn{ right:20px; }
+
+#counter{
+  position:absolute;
+  bottom:20px;
+  color:white;
+  font-size:16px;
+}
 </style>
 
 </head>
@@ -94,7 +122,16 @@ h1{
 
 <div class="gallery" id="gallery"></div>
   <div class="lightbox" id="lightbox">
+
+  <span id="close-btn">&times;</span>
+
+  <span id="prev-btn">&#10094;</span>
+  <span id="next-btn">&#10095;</span>
+
+  <div id="counter"></div>
+
   <img id="lightbox-img">
+
 </div>
 
 <script>
@@ -150,14 +187,14 @@ let images = [
 { id: "1k09vk8hjleOmIugd3pwXKNX926m1S2wF" }
 ];
 
+let currentIndex = 0;
 let html = "";
 
-images.forEach(img => {
-
+images.forEach((img, index) => {
   html += `
     <div class="image-card">
      <img src="https://drive.google.com/thumbnail?id=${img.id}&sz=w1000" 
-     onclick="openLightbox('${img.id}')">
+           onclick="openLightbox(${index})">
       <div class="buttons">
         <a href="https://drive.google.com/file/d/${img.id}/view" target="_blank">View</a>
         <a href="https://drive.google.com/uc?export=download&id=${img.id}">Download</a>
@@ -168,16 +205,36 @@ images.forEach(img => {
 });
 
 document.getElementById("gallery").innerHTML = html;
-function openLightbox(id){
-  const lightbox = document.getElementById("lightbox");
-  const img = document.getElementById("lightbox-img");
+function openLightbox(index){
+  currentIndex = index;
+  updateLightbox();
+  document.getElementById("lightbox").classList.add("active");
+}
 
-  img.src = `https://drive.google.com/thumbnail?id=${id}&sz=w2000`;
-  lightbox.classList.add("active");
+function updateLightbox(){
+  const img = document.getElementById("lightbox-img");
+  const counter = document.getElementById("counter");
+
+  img.src = `https://drive.google.com/thumbnail?id=${images[currentIndex].id}&sz=w2000`;
+
+  counter.innerText = `${currentIndex + 1} / ${images.length}`;
 }
 
 document.getElementById("lightbox").onclick = function(){
   this.classList.remove("active");
+};
+  document.getElementById("next-btn").onclick = function(){
+  currentIndex = (currentIndex + 1) % images.length;
+  updateLightbox();
+};
+
+document.getElementById("prev-btn").onclick = function(){
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  updateLightbox();
+};
+
+document.getElementById("close-btn").onclick = function(){
+  document.getElementById("lightbox").classList.remove("active");
 };
 </script>
 
