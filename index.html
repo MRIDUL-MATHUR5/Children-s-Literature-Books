@@ -101,12 +101,14 @@
       white-space: nowrap;
       background: #fff;
       padding: 20px 0;
+      height: 220px;
     }
 
    .gallery-track {
   display: flex;
   width: max-content;
   animation: scroll 80s linear infinite;
+     height: 180px;
 }
 
     .gallery-track img {
@@ -268,7 +270,7 @@
   let html = "";
 
   images.forEach(img => {
-let link = `https://lh3.googleusercontent.com/p/${img.id}=s400`;
+let link = `https://drive.google.com/thumbnail?id=${img.id}&sz=w1000`;
   });
 
   track.innerHTML = html + html;
