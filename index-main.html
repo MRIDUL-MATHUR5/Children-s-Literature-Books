@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AWIC</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #f4f6fb;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 10px 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+    }
+
+    .nav-links a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    /* HERO */
+    .hero {
+      width: 100%;
+      height: 300px;
+      background: url('YOUR_IMAGE_LINK_HERE') center/cover;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 50px 80px;
+    }
+
+    h2 {
+      color: #2f3e9e;
+    }
+
+    /* BUTTONS */
+    .btn {
+      background: #2f3e9e;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* ARTICLES */
+    .years {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+      gap: 15px;
+    }
+
+    .year-btn {
+      background: #2f3e9e;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* MOVING GALLERY */
+    .gallery-container {
+      overflow: hidden;
+      white-space: nowrap;
+      background: #fff;
+      padding: 20px 0;
+    }
+
+    .gallery-track {
+      display: inline-block;
+      animation: scroll 20s linear infinite;
+    }
+
+    .gallery-track img {
+      width: 250px;
+      height: 180px;
+      margin: 0 10px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+      background: #e9ecf7;
+      padding: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <h2>AWIC</h2>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#articles">Articles</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero"></div>
+
+<!-- ABOUT -->
+<div class="section">
+  <h2>About AWIC</h2>
+  <p>
+    The Association of Writers and Illustrators for Children (AWIC) promotes children's literature in India.
+  </p>
+</div>
+
+<!-- BROCHURE -->
+<div class="section">
+  <h2>AWIC Brochure</h2>
+  <p>Learn more about our mission and activities.</p>
+  <button class="btn">View Brochure</button>
+</div>
+
+<!-- ARTICLES -->
+<div class="section" id="articles">
+  <h2>AWIC Journal Articles</h2>
+  <div class="years">
+    <div class="year-btn">1981</div>
+    <div class="year-btn">1982</div>
+    <div class="year-btn">1983</div>
+    <div class="year-btn">1984</div>
+    <div class="year-btn">1985</div>
+    <div class="year-btn">1986</div>
+    <div class="year-btn">1987</div>
+    <div class="year-btn">1988</div>
+  </div>
+</div>
+
+<!-- MOVING GALLERY -->
+<div class="section" id="gallery">
+  <h2>Photo Gallery</h2>
+
+  <div class="gallery-container">
+    <div class="gallery-track">
+
+      <!-- DUPLICATE IMAGES FOR SMOOTH LOOP -->
+      <img src="IMAGE1">
+      <img src="IMAGE2">
+      <img src="IMAGE3">
+      <img src="IMAGE4">
+
+      <img src="IMAGE1">
+      <img src="IMAGE2">
+      <img src="IMAGE3">
+      <img src="IMAGE4">
+
+    </div>
+  </div>
+
+</div>
+
+<!-- CONTACT -->
+<div class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <p>Manorama Jafa (Secretary General)</p>
+  <p>New Delhi - 110002</p>
+  <p>+91-11-43603831</p>
+  <p>info@awic.in</p>
+</div>
+
+</body>
+</html>
