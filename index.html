@@ -35,8 +35,8 @@
     .hero {
   width: 100%;
   height: 400px;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-              url('https://drive.google.com/uc?export=view&id=1vd9iL8k2pvlskRO5aVMiYnFhE8pamqHe') center/cover;
+ background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+            url('https://lh3.googleusercontent.com/p/1vd9iL8k2pvlskRO5aVMiYnFhE8pamqHe=s1600') center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,14 +80,20 @@
       gap: 15px;
     }
 
-    .year-btn {
-      background: #2f3e9e;
-      color: white;
-      padding: 10px;
-      text-align: center;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+  .year-btn {
+  background: #2f3e9e;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.year-btn:hover {
+  background: #1d2a7a;
+  transform: scale(1.05);
+}
 
     /* MOVING GALLERY */
     .gallery-container {
@@ -122,6 +128,25 @@
       background: #e9ecf7;
       padding: 40px;
     }
+    .gallery-container {
+  overflow: hidden;
+  background: #fff;
+  padding: 20px 0;
+}
+
+.gallery-track {
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  animation: scroll 80s linear infinite;
+}
+
+.gallery-track img {
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
   </style>
 </head>
 
@@ -164,16 +189,7 @@
 <!-- ARTICLES -->
 <div class="section" id="articles">
   <h2>AWIC Journal Articles</h2>
-  <div class="years">
-    <div class="year-btn">1981</div>
-    <div class="year-btn">1982</div>
-    <div class="year-btn">1983</div>
-    <div class="year-btn">1984</div>
-    <div class="year-btn">1985</div>
-    <div class="year-btn">1986</div>
-    <div class="year-btn">1987</div>
-    <div class="year-btn">1988</div>
-  </div>
+  <div class="years" id="yearsContainer"></div>
 </div>
 
 <!-- MOVING GALLERY -->
@@ -252,8 +268,7 @@
   let html = "";
 
   images.forEach(img => {
-    let link = `https://drive.google.com/uc?export=view&id=${img.id}`;
-    html += `<img src="${link}">`;
+let link = `https://lh3.googleusercontent.com/p/${img.id}=s400`;
   });
 
   track.innerHTML = html + html;
@@ -263,6 +278,29 @@
   document.getElementById("articles").scrollIntoView({
     behavior: "smooth"
   });
+}
+  // ===== YEAR BUTTONS =====
+
+const yearsContainer = document.getElementById("yearsContainer");
+
+let startYear = 1981;
+let endYear = 2024;
+
+for (let year = startYear; year <= endYear; year++) {
+  let btn = document.createElement("div");
+  btn.className = "year-btn";
+  btn.innerText = year;
+
+  btn.onclick = function() {
+    openYear(year);
+  };
+
+  yearsContainer.appendChild(btn);
+}
+
+// click function
+function openYear(year) {
+  alert("Opening articles for " + year);
 }
 </script>
 
