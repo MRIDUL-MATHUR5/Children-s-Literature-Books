@@ -155,22 +155,9 @@
 <div class="section" id="gallery">
   <h2>Photo Gallery</h2>
 
-  <div class="gallery-container">
-    <div class="gallery-track">
-
-      <!-- DUPLICATE IMAGES FOR SMOOTH LOOP -->
-      <img src="IMAGE1">
-      <img src="IMAGE2">
-      <img src="IMAGE3">
-      <img src="IMAGE4">
-
-      <img src="IMAGE1">
-      <img src="IMAGE2">
-      <img src="IMAGE3">
-      <img src="IMAGE4">
-
-    </div>
-  </div>
+ <div class="gallery-container">
+  <div class="gallery-track" id="galleryTrack"></div>
+</div>>
 
 </div>
 
@@ -182,6 +169,71 @@
   <p>+91-11-43603831</p>
   <p>info@awic.in</p>
 </div>
+
+<script>
+  let images = [
+  { id: "1CXH2P_vhLcmJNN4KuzTcW9voJanzvHSE" },
+  { id: "1kDBzndP_txdnpVg0M-VFyciiL0Tb3TSX" },
+  { id: "1Uj2IOFWVAhXKgN7Tb9XYbEpIDRQYXuqi" },
+  { id: "12l7DQ7lgch4scaceAxygUvl5mHzI29N3" },
+  { id: "1NvGJCbPgyDewTBLHwBNQPXTFq1dWvm8S" },
+  { id: "1FVF4Ocx2R_B2tD6wabjr9vT3rktJT0hP" },
+  { id: "1SokV7Fq3-51KhwUb7oQCQLrq0_KuyVzo" },
+  { id: "1g7cOlSp2YC7a3LQPTwt07-i8cebb9zCB" },
+  { id: "1V_8oV-KOSWp8fwLzWd9V0w-K_RUwqSdZ" },
+  { id: "1JuWtH9414BZiGZ5KbuhZIt4-H8m4yiGZ" },
+  { id: "1GIkojgcYtUl0pIQB9DCikf2V0gLI6kWh" },
+{ id: "17_S-8aurhj-rMrunHm30dnSFXMvbGNBX" },
+{ id: "1FNQu301arhwjX1ECPYXhKJLjBj02WIAI" },
+{ id: "1iVDEHnOB-3dRLx7xga2k6t4eXccFJFkL" },
+{ id: "1lPN2kttfsKP-MZZImNwpiEkn84Hk_uzt" },
+{ id: "1D0Z5VZw5ENACI7DQLuGPMmfeWbB67vg7" },
+{ id: "1EqejmbbIhjmuODyG3szoQBNkavEjV3p7" },
+{ id: "1WLqMhmv6Itjq9OrXGzOKuNFo4bGd83I1" },
+{ id: "1-jYk5sdWP2WUzEoNxzrmYqD5rHtR96GC" },
+{ id: "19lnkWqphPY1ysxW4TH_sw1Ly9eTUjWXp" },
+{ id: "18nhSn6iiRlSWUBWK3xrXAnia9YSgUEOC" },
+{ id: "1gk98cAqHqI0-P9lweRVJUQv87B_G0oI5" },
+{ id: "1nb-F-0Ygj5IgzPmqUVHgdi-AsVfHog_N" },
+{ id: "1G3O6mtF2FkDFdvGEqcwHLIVTwRiNxJf_" },
+{ id: "1_9l5dxa5lTaOqNte2W6rtO4WCe3IxRxg" },
+  { id: "1kEHAns03PEHuZI67_O_UOP0ttRU0QWs5" },
+{ id: "1_7lK-Zu7haPp4OVEzYeYGm-8KvIXJOs8" },
+{ id: "1U8NYKHukKElnAdc2gJH4pR4HM946m0O1" },
+{ id: "19qgeSSHjtEGuYcn-PzxCt337dBB9mGST" },
+{ id: "1M91_fc1cir38n3KgskS8u2OfNH4W78UC" },
+{ id: "1njS4Uce372m8znR0ryLK5LdUkUk3vb47" },
+{ id: "1DkomeHM23VaIMGi2NyOCfdKyjYSw9pwc" },
+{ id: "1yJ463YXd8dktK4cl6pWoZ5hkF0cH5oUC" },
+{ id: "1DizEze3rjaZ2fpMVudLtas-5VPv8fcco" },
+{ id: "1xR2TkXz-5eTEaM80i259EV9vgBMO9AwU" },
+{ id: "1nL0MJg46sFh6bTObz6sKfTyldI4muA0W" },
+{ id: "19u9sUjAf25m6GLjbywQk2ZYtT-NR70fG" },
+{ id: "1M6ucWGsK24wrRbEm4Oh2dcq5UXLyueEO" },
+{ id: "1hPfNKzdTb-1bOJZ6Uv5_pn24pcw50bQz" },
+{ id: "1Qc61GdEcOAHXtHtOQP5tj22xEz7C5le4" },
+{ id: "1tdiqVu1kmImJH7MjWjpH7mlK2uV-LLba" },
+{ id: "1oBnyR73ojnC7M_X58Zq1xW7clk75M79a" },
+{ id: "1Tz6S1IJU5_MeWklhV8aAIqfgwtbjUQcr" },
+{ id: "1SktX1ukI5PbHJ_fSzJ4AXSIn81y0ybUJ" },
+{ id: "1rKa98CASWf4V9KHbwdQdmM_1fa0VXYui" },
+{ id: "1Bs0ckpundj2ZjbqDtOmc-imBIGg51YZF" },
+{ id: "1hcHvnlgBULIqz8OUwParK9Ykg5DR-TRL" },
+{ id: "1k09vk8hjleOmIugd3pwXKNX926m1S2wF" }
+];
+  const track = document.getElementById("galleryTrack");
+
+let html = "";
+
+// Convert IDs → actual image links
+images.forEach(img => {
+  let link = `https://drive.google.com/uc?export=view&id=${img.id}`;
+  html += `<img src="${link}">`;
+});
+
+// Duplicate for infinite scroll
+track.innerHTML = html + html;
+</script>
 
 </body>
 </html>
