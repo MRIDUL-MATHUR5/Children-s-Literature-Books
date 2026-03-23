@@ -17,366 +17,188 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--text);
-    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); }
 
     /* ── NAVBAR ── */
     .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 48px;
-      height: 68px;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 48px; height: 68px;
       background: rgba(255,255,255,0.92);
       backdrop-filter: blur(12px);
       box-shadow: 0 1px 0 rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
     }
-
     .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      font-weight: 900;
-      color: var(--navy);
-      letter-spacing: 2px;
+      font-family: 'Playfair Display', serif; font-size: 24px;
+      font-weight: 900; color: var(--navy); letter-spacing: 2px;
     }
-
     .nav-logo span { color: var(--gold); }
-
     .nav-links { display: flex; gap: 8px; }
-
     .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 6px;
+      text-decoration: none; color: var(--muted); font-size: 14px;
+      font-weight: 500; padding: 8px 16px; border-radius: 6px;
       transition: color 0.2s, background 0.2s;
     }
-
-    .nav-links a:hover {
-      color: var(--indigo);
-      background: var(--light);
-    }
+    .nav-links a:hover { color: var(--indigo); background: var(--light); }
 
     /* ── HERO ── */
     .hero {
-      position: relative;
-      height: 520px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      background: var(--navy);
+      position: relative; height: 520px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden; background: var(--navy);
     }
-
     .hero-bg {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background:
         linear-gradient(160deg, rgba(26,37,96,0.82) 0%, rgba(47,62,158,0.70) 100%),
         url('https://lh3.googleusercontent.com/p/1vd9iL8k2pvlskRO5aVMiYnFhE8pamqHe=s1600') center/cover no-repeat;
     }
-
-    /* decorative diagonal stripe */
     .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      background: var(--cream);
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 100%; height: 80px; background: var(--cream);
       clip-path: polygon(0 100%, 100% 100%, 100% 0);
     }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      color: white;
-      padding: 0 24px;
-    }
-
+    .hero-content { position: relative; z-index: 1; color: white; padding: 0 24px; }
     .hero-tag {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 20px;
-      margin-bottom: 20px;
+      display: inline-block; background: var(--gold); color: var(--navy);
+      font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 20px;
     }
-
     .hero-content h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 5vw, 52px);
-      font-weight: 900;
-      line-height: 1.15;
-      margin-bottom: 16px;
-      max-width: 700px;
+      font-size: clamp(28px, 5vw, 52px); font-weight: 900;
+      line-height: 1.15; margin-bottom: 16px; max-width: 700px;
     }
-
-    .hero-content p {
-      font-size: 17px;
-      font-weight: 300;
-      opacity: 0.88;
-      margin-bottom: 32px;
-    }
-
+    .hero-content p { font-size: 17px; font-weight: 300; opacity: 0.88; margin-bottom: 32px; }
     .btn {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      padding: 14px 32px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block; background: var(--gold); color: var(--navy);
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+      letter-spacing: 0.5px; padding: 14px 32px; border: none;
+      border-radius: 8px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
     }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(201,168,76,0.45);
-    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.45); }
 
     /* ── SECTIONS ── */
-    .section {
-      padding: 72px 80px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
+    .section { padding: 72px 80px; max-width: 1200px; margin: 0 auto; }
     .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 10px;
+      font-size: 11px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
     }
-
     .section h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(26px, 4vw, 38px);
-      color: var(--navy);
-      margin-bottom: 18px;
-      line-height: 1.2;
+      font-size: clamp(26px, 4vw, 38px); color: var(--navy);
+      margin-bottom: 18px; line-height: 1.2;
     }
-
-    .section p {
-      color: var(--muted);
-      font-size: 15.5px;
-      line-height: 1.75;
-      max-width: 680px;
-    }
+    .section p { color: var(--muted); font-size: 15.5px; line-height: 1.75; max-width: 680px; }
 
     /* ── ABOUT ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
     .about-visual {
-      background: var(--light);
-      border-radius: 16px;
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+      background: var(--light); border-radius: 16px; padding: 40px;
+      display: flex; flex-direction: column; gap: 20px;
     }
-
-    .stat {
-      border-left: 3px solid var(--gold);
-      padding-left: 16px;
-    }
-
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-      font-weight: 900;
-      color: var(--navy);
-    }
-
-    .stat-label {
-      font-size: 13px;
-      color: var(--muted);
-    }
+    .stat { border-left: 3px solid var(--gold); padding-left: 16px; }
+    .stat-number { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--navy); }
+    .stat-label { font-size: 13px; color: var(--muted); }
 
     /* ── BROCHURE ── */
-    .brochure-strip {
-      background: var(--navy);
-      padding: 56px 80px;
-    }
-
+    .brochure-strip { background: var(--navy); padding: 56px 80px; }
     .brochure-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 32px;
     }
-
-    .brochure-inner h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 30px;
-      color: white;
-      margin-bottom: 8px;
-    }
-
-    .brochure-inner p {
-      color: rgba(255,255,255,0.6);
-      font-size: 15px;
-    }
-
+    .brochure-inner h2 { font-family: 'Playfair Display', serif; font-size: 30px; color: white; margin-bottom: 8px; }
+    .brochure-inner p { color: rgba(255,255,255,0.6); font-size: 15px; }
     .btn-outline {
-      background: transparent;
-      color: var(--gold);
-      border: 2px solid var(--gold);
-      padding: 13px 30px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.2s, color 0.2s;
+      background: transparent; color: var(--gold); border: 2px solid var(--gold);
+      padding: 13px 30px; border-radius: 8px; font-weight: 700; font-size: 14px;
+      cursor: pointer; white-space: nowrap; transition: background 0.2s, color 0.2s;
+      font-family: 'DM Sans', sans-serif;
     }
-
-    .btn-outline:hover {
-      background: var(--gold);
-      color: var(--navy);
-    }
+    .btn-outline:hover { background: var(--gold); color: var(--navy); }
 
     /* ── ARTICLES ── */
     .articles-bg { background: var(--light); }
-
-    .articles-section {
-      padding: 72px 80px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
+    .articles-section { padding: 72px 80px; max-width: 1200px; margin: 0 auto; }
     .years {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      gap: 12px;
-      margin-top: 32px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 12px; margin-top: 32px;
     }
-
     .year-btn {
-      background: white;
-      color: var(--indigo);
-      border: 1.5px solid #dde2f5;
-      padding: 13px 8px;
-      text-align: center;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      transition: all 0.2s;
+      background: white; color: var(--indigo); border: 1.5px solid #dde2f5;
+      padding: 13px 8px; text-align: center; border-radius: 8px;
+      cursor: pointer; font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 600; transition: all 0.2s;
     }
-
     .year-btn:hover {
-      background: var(--indigo);
-      color: white;
-      border-color: var(--indigo);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(47,62,158,0.25);
+      background: var(--indigo); color: white; border-color: var(--indigo);
+      transform: translateY(-2px); box-shadow: 0 6px 16px rgba(47,62,158,0.25);
     }
 
     /* ── GALLERY ── */
-    .gallery-wrapper {
-      background: var(--navy);
-      padding: 72px 0;
-    }
-
-    .gallery-header {
-      max-width: 1200px;
-      margin: 0 auto 36px;
-      padding: 0 80px;
-    }
-
+    .gallery-wrapper { background: var(--navy); padding: 72px 0; }
+    .gallery-header { max-width: 1200px; margin: 0 auto 16px; padding: 0 80px; }
     .gallery-header .section-label { color: rgba(201,168,76,0.9); }
-
     .gallery-header h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(26px, 4vw, 38px);
-      color: white;
-      line-height: 1.2;
+      font-size: clamp(26px, 4vw, 38px); color: white; line-height: 1.2;
     }
+
+    /* Download All + hint row */
+    .gallery-actions {
+      max-width: 1200px; margin: 0 auto 28px; padding: 0 80px;
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .btn-download-all {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--navy);
+      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700;
+      padding: 10px 22px; border-radius: 8px; border: none;
+      cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-download-all:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,168,76,0.4); }
+    .gallery-hint { color: rgba(255,255,255,0.4); font-size: 13px; }
 
     .gallery-container {
-      overflow: hidden;
-      width: 100%;
-      padding: 8px 0;
-      cursor: default;
-      position: relative;
+      overflow: hidden; width: 100%; padding: 8px 0; position: relative;
     }
-
-    /* fade edges */
-    .gallery-container::before,
-    .gallery-container::after {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 120px;
-      z-index: 2;
-      pointer-events: none;
+    .gallery-container::before, .gallery-container::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
     }
-
-    .gallery-container::before {
-      left: 0;
-      background: linear-gradient(to right, var(--navy), transparent);
-    }
-
-    .gallery-container::after {
-      right: 0;
-      background: linear-gradient(to left, var(--navy), transparent);
-    }
+    .gallery-container::before { left: 0; background: linear-gradient(to right, var(--navy), transparent); }
+    .gallery-container::after  { right: 0; background: linear-gradient(to left, var(--navy), transparent); }
 
     .gallery-track {
-      display: flex;
-      gap: 16px;
-      width: max-content;
+      display: flex; gap: 16px; width: max-content;
       animation: scrollGallery 60s linear infinite;
     }
-
     .gallery-track:hover { animation-play-state: paused; }
 
-    .gallery-track img {
-      width: 260px;
-      height: 190px;
-      object-fit: cover;
-      border-radius: 10px;
-      flex-shrink: 0;
-      display: block;
+    /* Each image wrapper — click to open lightbox, hover to show overlay */
+    .gallery-item {
+      position: relative; flex-shrink: 0;
+      width: 260px; height: 190px;
+      border-radius: 10px; overflow: hidden;
+      cursor: pointer;
       border: 2px solid rgba(255,255,255,0.08);
-      transition: transform 0.3s, border-color 0.3s;
+      transition: border-color 0.3s, transform 0.3s;
     }
+    .gallery-item:hover { border-color: var(--gold); transform: scale(1.04); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    .gallery-track img:hover {
-      transform: scale(1.04);
-      border-color: var(--gold);
+    /* Hover overlay with "View" label */
+    .gallery-item-overlay {
+      position: absolute; inset: 0;
+      background: rgba(26,37,96,0.65);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+    .overlay-view-btn {
+      background: var(--gold); color: var(--navy);
+      font-size: 12px; font-weight: 700; padding: 8px 18px;
+      border-radius: 6px; display: flex; align-items: center; gap: 6px;
     }
 
     @keyframes scrollGallery {
@@ -384,88 +206,72 @@
       100% { transform: translateX(-50%); }
     }
 
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(8, 12, 35, 0.93);
+      align-items: center; justify-content: center; flex-direction: column; gap: 20px;
+      backdrop-filter: blur(8px);
+    }
+    .lightbox.open { display: flex; }
+
+    .lightbox-img {
+      max-width: 86vw; max-height: 68vh;
+      border-radius: 12px; object-fit: contain;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+      transition: opacity 0.2s;
+    }
+
+    .lightbox-controls {
+      display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center;
+    }
+    .lb-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 24px; border-radius: 8px;
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+      cursor: pointer; border: none; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .lb-btn:hover { transform: translateY(-2px); }
+    .lb-btn-download { background: var(--gold); color: var(--navy); }
+    .lb-btn-download:hover { box-shadow: 0 6px 20px rgba(201,168,76,0.4); }
+    .lb-btn-close { background: rgba(255,255,255,0.1); color: white; }
+    .lb-counter { color: rgba(255,255,255,0.4); font-size: 13px; min-width: 60px; text-align: center; }
+
+    /* Prev / Next arrows */
+    .lb-nav {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.08); color: white;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      border-radius: 50%; width: 50px; height: 50px;
+      font-size: 20px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s; z-index: 10000;
+    }
+    .lb-nav:hover { background: rgba(255,255,255,0.22); }
+    .lb-nav-prev { left: 20px; }
+    .lb-nav-next { right: 20px; }
+
     /* ── CONTACT ── */
     .contact-bg { background: var(--light); }
-
     .contact-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 72px 80px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: start;
+      max-width: 1200px; margin: 0 auto; padding: 72px 80px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
     }
-
-    .contact-info h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-      color: var(--navy);
-      margin-bottom: 24px;
-    }
-
-    .contact-detail {
-      display: flex;
-      gap: 14px;
-      margin-bottom: 20px;
-      align-items: flex-start;
-    }
-
+    .contact-info h2 { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--navy); margin-bottom: 24px; }
+    .contact-detail { display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start; }
     .contact-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: white;
+      width: 40px; height: 40px; border-radius: 10px; background: white;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 17px;
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0;
     }
-
-    .contact-text strong {
-      display: block;
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
-
-    .contact-text span {
-      font-size: 15px;
-      color: var(--text);
-    }
-
-    .contact-card {
-      background: var(--navy);
-      color: white;
-      padding: 40px;
-      border-radius: 16px;
-    }
-
-    .contact-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      margin-bottom: 14px;
-      color: var(--gold);
-    }
-
-    .contact-card p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.7;
-    }
+    .contact-text strong { display: block; font-size: 13px; color: var(--muted); font-weight: 500; margin-bottom: 2px; }
+    .contact-text span { font-size: 15px; color: var(--text); }
+    .contact-card { background: var(--navy); color: white; padding: 40px; border-radius: 16px; }
+    .contact-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 14px; color: var(--gold); }
+    .contact-card p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; }
 
     /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.45);
-      text-align: center;
-      padding: 24px;
-      font-size: 13px;
-    }
-
+    footer { background: var(--navy); color: rgba(255,255,255,0.45); text-align: center; padding: 24px; font-size: 13px; }
     footer span { color: var(--gold); }
 
     /* ── RESPONSIVE ── */
@@ -476,9 +282,11 @@
       .brochure-strip { padding: 40px 24px; }
       .brochure-inner { flex-direction: column; text-align: center; }
       .articles-section { padding: 48px 24px; }
-      .gallery-header { padding: 0 24px; }
+      .gallery-header, .gallery-actions { padding: 0 24px; }
       .contact-inner { grid-template-columns: 1fr; padding: 48px 24px; }
       .years { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
+      .lb-nav-prev { left: 8px; }
+      .lb-nav-next { right: 8px; }
     }
   </style>
 </head>
@@ -514,30 +322,14 @@
     <div>
       <div class="section-label">Who We Are</div>
       <h2>Celebrating the Art of Children's Literature</h2>
-      <p>
-        The Association of Writers and Illustrators for Children (AWIC) is India's foremost body
-        dedicated to promoting quality literature and illustration for young readers. Since 1975,
-        we have championed storytellers, poets, and artists whose work enriches childhood.
-      </p>
+      <p>The Association of Writers and Illustrators for Children (AWIC) is India's foremost body dedicated to promoting quality literature and illustration for young readers. Since 1975, we have championed storytellers, poets, and artists whose work enriches childhood.</p>
       <br/>
-      <p>
-        Through our journals, events, and workshops, AWIC fosters a community where creativity
-        and education meet — nurturing the next generation of readers and creators.
-      </p>
+      <p>Through our journals, events, and workshops, AWIC fosters a community where creativity and education meet — nurturing the next generation of readers and creators.</p>
     </div>
     <div class="about-visual">
-      <div class="stat">
-        <div class="stat-number">44+</div>
-        <div class="stat-label">Years of Journal Publication</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">1975</div>
-        <div class="stat-label">Year of Founding</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">500+</div>
-        <div class="stat-label">Articles Archived</div>
-      </div>
+      <div class="stat"><div class="stat-number">44+</div><div class="stat-label">Years of Journal Publication</div></div>
+      <div class="stat"><div class="stat-number">1975</div><div class="stat-label">Year of Founding</div></div>
+      <div class="stat"><div class="stat-number">500+</div><div class="stat-label">Articles Archived</div></div>
     </div>
   </div>
 </div>
@@ -549,9 +341,7 @@
       <h2>AWIC Brochure</h2>
       <p>Learn more about our mission, publications, and upcoming events.</p>
     </div>
-    <button class="btn-outline" onclick="alert('Brochure PDF link coming soon!')">
-      View Brochure ↓
-    </button>
+    <button class="btn-outline" onclick="alert('Brochure PDF link coming soon!')">View Brochure ↓</button>
   </div>
 </div>
 
@@ -560,9 +350,7 @@
   <div class="articles-section" id="articles">
     <div class="section-label">Archive</div>
     <h2>AWIC Journal Articles</h2>
-    <p style="color:var(--muted);font-size:15px;margin-top:8px;">
-      Select a year to browse articles from that edition.
-    </p>
+    <p style="color:var(--muted);font-size:15px;margin-top:8px;">Select a year to browse articles from that edition.</p>
     <div class="years" id="yearsContainer"></div>
   </div>
 </div>
@@ -573,8 +361,24 @@
     <div class="section-label">Memories</div>
     <h2>Photo Gallery</h2>
   </div>
+  <div class="gallery-actions">
+    <button class="btn-download-all" onclick="downloadAll()">&#11015; Download All Photos</button>
+    <span class="gallery-hint">Click any photo to view &amp; download individually</span>
+  </div>
   <div class="gallery-container">
     <div class="gallery-track" id="galleryTrack"></div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOnBackdrop(event)">
+  <button class="lb-nav lb-nav-prev" onclick="lbNav(-1)">&#8592;</button>
+  <button class="lb-nav lb-nav-next" onclick="lbNav(+1)">&#8594;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="AWIC gallery photo"/>
+  <div class="lightbox-controls">
+    <a class="lb-btn lb-btn-download" id="lightboxDownload" href="#" target="_blank">&#11015; Download Photo</a>
+    <button class="lb-btn lb-btn-close" onclick="closeLightbox()">&#x2715; Close</button>
+    <span class="lb-counter" id="lbCounter"></span>
   </div>
 </div>
 
@@ -585,59 +389,38 @@
       <div class="section-label">Get in Touch</div>
       <h2>Contact Us</h2>
       <div class="contact-detail">
-        <div class="contact-icon">👤</div>
-        <div class="contact-text">
-          <strong>Secretary General</strong>
-          <span>Manorama Jafa</span>
-        </div>
+        <div class="contact-icon">&#128100;</div>
+        <div class="contact-text"><strong>Secretary General</strong><span>Manorama Jafa</span></div>
       </div>
       <div class="contact-detail">
-        <div class="contact-icon">📍</div>
-        <div class="contact-text">
-          <strong>Address</strong>
-          <span>New Delhi – 110002</span>
-        </div>
+        <div class="contact-icon">&#128205;</div>
+        <div class="contact-text"><strong>Address</strong><span>New Delhi &#8211; 110002</span></div>
       </div>
       <div class="contact-detail">
-        <div class="contact-icon">📞</div>
-        <div class="contact-text">
-          <strong>Phone</strong>
-          <span>+91-11-43603831</span>
-        </div>
+        <div class="contact-icon">&#128222;</div>
+        <div class="contact-text"><strong>Phone</strong><span>+91-11-43603831</span></div>
       </div>
       <div class="contact-detail">
-        <div class="contact-icon">✉️</div>
-        <div class="contact-text">
-          <strong>Email</strong>
-          <span>info@awic.in</span>
-        </div>
+        <div class="contact-icon">&#9993;&#65039;</div>
+        <div class="contact-text"><strong>Email</strong><span>info@awic.in</span></div>
       </div>
     </div>
     <div class="contact-card">
       <h3>Join AWIC</h3>
-      <p>
-        Are you a writer, illustrator, or educator passionate about children's literature?
-        Become a member of AWIC and be part of a community that celebrates creativity,
-        learning, and storytelling for young minds across India.
-      </p>
+      <p>Are you a writer, illustrator, or educator passionate about children's literature? Become a member of AWIC and be part of a community that celebrates creativity, learning, and storytelling for young minds across India.</p>
       <br/>
-      <button class="btn" style="font-size:13px;padding:12px 24px;">
-        Membership Enquiry
-      </button>
+      <button class="btn" style="font-size:13px;padding:12px 24px;">Membership Enquiry</button>
     </div>
   </div>
 </div>
 
 <!-- FOOTER -->
-<footer>
-  © 2024 <span>AWIC</span> — Association of Writers &amp; Illustrators for Children. All rights reserved.
-</footer>
+<footer>&#169; 2024 <span>AWIC</span> &#8212; Association of Writers &amp; Illustrators for Children. All rights reserved.</footer>
 
 <script>
-  // ── GALLERY FIX ──
-  // The bug was: `html` string was never appended to inside the forEach loop.
-  // Fix: build img tags properly, then duplicate for seamless infinite scroll.
-
+  // ─────────────────────────────────────────────
+  // IMAGE IDS (all 48 photos from Google Drive)
+  // ─────────────────────────────────────────────
   const imageIds = [
     "1CXH2P_vhLcmJNN4KuzTcW9voJanzvHSE","1kDBzndP_txdnpVg0M-VFyciiL0Tb3TSX",
     "1Uj2IOFWVAhXKgN7Tb9XYbEpIDRQYXuqi","12l7DQ7lgch4scaceAxygUvl5mHzI29N3",
@@ -665,36 +448,107 @@
     "1hcHvnlgBULIqz8OUwParK9Ykg5DR-TRL","1k09vk8hjleOmIugd3pwXKNX926m1S2wF"
   ];
 
+  // ─────────────────────────────────────────────
+  // BUILD GALLERY (items + duplicate for scroll)
+  // ─────────────────────────────────────────────
   window.onload = function () {
     const track = document.getElementById("galleryTrack");
 
-    // Build img tags — THIS was the missing piece in the original code
-    let html = imageIds.map(id =>
-      `<img
-        src="https://drive.google.com/thumbnail?id=${id}&sz=w400"
-        alt="AWIC event photo"
-        loading="lazy"
-        onerror="this.style.display='none'"
-      />`
-    ).join("");
+    const html = imageIds.map((id, i) => `
+      <div class="gallery-item" onclick="openLightbox(${i})">
+        <img
+          src="https://drive.google.com/thumbnail?id=${id}&sz=w400"
+          alt="AWIC photo ${i + 1}"
+          loading="lazy"
+          onerror="this.closest('.gallery-item').style.display='none'"
+        />
+        <div class="gallery-item-overlay">
+          <span class="overlay-view-btn">&#128269; View</span>
+        </div>
+      </div>`).join("");
 
-    // Duplicate for seamless infinite loop (CSS animation goes 0% → -50%)
+    // Duplicate so the loop is seamless (CSS moves -50%)
     track.innerHTML = html + html;
   };
 
-  // ── YEAR BUTTONS ──
-  const yearsContainer = document.getElementById("yearsContainer");
+  // ─────────────────────────────────────────────
+  // LIGHTBOX
+  // ─────────────────────────────────────────────
+  let currentIndex = 0;
 
-  for (let year = 1981; year <= 2024; year++) {
-    const btn = document.createElement("div");
-    btn.className = "year-btn";
-    btn.textContent = year;
-    btn.onclick = () => openYear(year);
-    yearsContainer.appendChild(btn);
+  function openLightbox(index) {
+    currentIndex = index;
+    updateLightbox();
+    document.getElementById("lightbox").classList.add("open");
+    document.body.style.overflow = "hidden";
+    // Pause the auto-scroll while lightbox is open
+    document.getElementById("galleryTrack").style.animationPlayState = "paused";
   }
 
-  function openYear(year) {
-    window.location.href = "year.html?year=" + year;
+  function closeLightbox() {
+    document.getElementById("lightbox").classList.remove("open");
+    document.body.style.overflow = "";
+    document.getElementById("galleryTrack").style.animationPlayState = "running";
+  }
+
+  function closeLightboxOnBackdrop(e) {
+    // Only close if the click is on the backdrop itself, not child elements
+    if (e.target === document.getElementById("lightbox")) closeLightbox();
+  }
+
+  function lbNav(dir) {
+    currentIndex = (currentIndex + dir + imageIds.length) % imageIds.length;
+    updateLightbox();
+  }
+
+  function updateLightbox() {
+    const id = imageIds[currentIndex];
+    document.getElementById("lightboxImg").src =
+      `https://drive.google.com/thumbnail?id=${id}&sz=w1200`;
+    document.getElementById("lightboxDownload").href =
+      `https://drive.google.com/uc?export=download&id=${id}`;
+    document.getElementById("lbCounter").textContent =
+      `${currentIndex + 1} / ${imageIds.length}`;
+  }
+
+  // Keyboard: Left/Right to navigate, Escape to close
+  document.addEventListener("keydown", e => {
+    if (!document.getElementById("lightbox").classList.contains("open")) return;
+    if (e.key === "ArrowLeft")  lbNav(-1);
+    if (e.key === "ArrowRight") lbNav(+1);
+    if (e.key === "Escape")     closeLightbox();
+  });
+
+  // ─────────────────────────────────────────────
+  // DOWNLOAD ALL
+  // Opens each photo's Drive download link with a staggered delay.
+  // Note: browser must allow pop-ups for this page.
+  // ─────────────────────────────────────────────
+  function downloadAll() {
+    const ok = confirm(
+      "This will open " + imageIds.length + " download links in new tabs.\n\n" +
+      "Please make sure your browser allows pop-ups from this site.\n\nProceed?"
+    );
+    if (!ok) return;
+    imageIds.forEach((id, i) => {
+      setTimeout(() => {
+        window.open("https://drive.google.com/uc?export=download&id=" + id, "_blank");
+      }, i * 250);
+    });
+  }
+
+  // ─────────────────────────────────────────────
+  // YEAR BUTTONS
+  // KEY FIX: use window.location.href so year.html
+  // receives the ?year= param correctly in the URL
+  // ─────────────────────────────────────────────
+  const yearsContainer = document.getElementById("yearsContainer");
+  for (let y = 1981; y <= 2024; y++) {
+    const btn = document.createElement("div");
+    btn.className = "year-btn";
+    btn.textContent = y;
+    btn.onclick = () => { window.location.href = "year.html?year=" + y; };
+    yearsContainer.appendChild(btn);
   }
 </script>
 </body>
