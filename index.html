@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AWIC — Association of Writers & Illustrators for Children</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -15,7 +15,6 @@
       --text:   #2b2b2b;
       --muted:  #6b7280;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); }
@@ -24,246 +23,183 @@
     .navbar {
       display: flex; justify-content: space-between; align-items: center;
       padding: 0 48px; height: 68px;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
       box-shadow: 0 1px 0 rgba(0,0,0,0.08);
-      position: sticky; top: 0; z-index: 100;
+      position: sticky; top: 0; z-index: 200;
     }
-    .nav-logo {
-      font-family: 'Playfair Display', serif; font-size: 24px;
-      font-weight: 900; color: var(--navy); letter-spacing: 2px;
-    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--navy); letter-spacing: 2px; }
     .nav-logo span { color: var(--gold); }
     .nav-links { display: flex; gap: 8px; }
-    .nav-links a {
-      text-decoration: none; color: var(--muted); font-size: 14px;
-      font-weight: 500; padding: 8px 16px; border-radius: 6px;
-      transition: color 0.2s, background 0.2s;
-    }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 500; padding: 8px 16px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
     .nav-links a:hover { color: var(--indigo); background: var(--light); }
 
     /* ── HERO ── */
-    .hero {
-      position: relative; height: 520px;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; overflow: hidden; background: var(--navy);
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background:
-        linear-gradient(160deg, rgba(26,37,96,0.82) 0%, rgba(47,62,158,0.70) 100%),
-        url('https://lh3.googleusercontent.com/p/1vd9iL8k2pvlskRO5aVMiYnFhE8pamqHe=s1600') center/cover no-repeat;
-    }
-    .hero::after {
-      content: ''; position: absolute; bottom: -2px; left: 0;
-      width: 100%; height: 80px; background: var(--cream);
-      clip-path: polygon(0 100%, 100% 100%, 100% 0);
-    }
+    .hero { position: relative; height: 520px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: var(--navy); }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(26,37,96,0.82) 0%, rgba(47,62,158,0.70) 100%), url('https://lh3.googleusercontent.com/p/1vd9iL8k2pvlskRO5aVMiYnFhE8pamqHe=s1600') center/cover no-repeat; }
+    .hero::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 80px; background: var(--cream); clip-path: polygon(0 100%, 100% 100%, 100% 0); }
     .hero-content { position: relative; z-index: 1; color: white; padding: 0 24px; }
-    .hero-tag {
-      display: inline-block; background: var(--gold); color: var(--navy);
-      font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
-      text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 20px;
-    }
-    .hero-content h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 5vw, 52px); font-weight: 900;
-      line-height: 1.15; margin-bottom: 16px; max-width: 700px;
-    }
+    .hero-tag { display: inline-block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 20px; }
+    .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 52px); font-weight: 900; line-height: 1.15; margin-bottom: 16px; max-width: 700px; }
     .hero-content p { font-size: 17px; font-weight: 300; opacity: 0.88; margin-bottom: 32px; }
-    .btn {
-      display: inline-block; background: var(--gold); color: var(--navy);
-      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
-      letter-spacing: 0.5px; padding: 14px 32px; border: none;
-      border-radius: 8px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
-    }
+    .btn { display: inline-block; background: var(--gold); color: var(--navy); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700; padding: 14px 32px; border: none; border-radius: 8px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.45); }
 
     /* ── SECTIONS ── */
     .section { padding: 72px 80px; max-width: 1200px; margin: 0 auto; }
-    .section-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
-    }
-    .section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(26px, 4vw, 38px); color: var(--navy);
-      margin-bottom: 18px; line-height: 1.2;
-    }
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .section h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 38px); color: var(--navy); margin-bottom: 18px; line-height: 1.2; }
     .section p { color: var(--muted); font-size: 15.5px; line-height: 1.75; max-width: 680px; }
 
     /* ── ABOUT ── */
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    .about-visual {
-      background: var(--light); border-radius: 16px; padding: 40px;
-      display: flex; flex-direction: column; gap: 20px;
-    }
+    .about-visual { background: var(--light); border-radius: 16px; padding: 40px; display: flex; flex-direction: column; gap: 20px; }
     .stat { border-left: 3px solid var(--gold); padding-left: 16px; }
     .stat-number { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--navy); }
     .stat-label { font-size: 13px; color: var(--muted); }
 
     /* ── BROCHURE ── */
     .brochure-strip { background: var(--navy); padding: 56px 80px; }
-    .brochure-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; gap: 32px;
-    }
+    .brochure-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
     .brochure-inner h2 { font-family: 'Playfair Display', serif; font-size: 30px; color: white; margin-bottom: 8px; }
     .brochure-inner p { color: rgba(255,255,255,0.6); font-size: 15px; }
-    .btn-outline {
-      background: transparent; color: var(--gold); border: 2px solid var(--gold);
-      padding: 13px 30px; border-radius: 8px; font-weight: 700; font-size: 14px;
-      cursor: pointer; white-space: nowrap; transition: background 0.2s, color 0.2s;
-      font-family: 'DM Sans', sans-serif;
-    }
+    .btn-outline { background: transparent; color: var(--gold); border: 2px solid var(--gold); padding: 13px 30px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; white-space: nowrap; font-family: 'DM Sans', sans-serif; transition: background 0.2s, color 0.2s; }
     .btn-outline:hover { background: var(--gold); color: var(--navy); }
 
     /* ── ARTICLES ── */
     .articles-bg { background: var(--light); }
     .articles-section { padding: 72px 80px; max-width: 1200px; margin: 0 auto; }
-    .years {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      gap: 12px; margin-top: 32px;
-    }
+    .years { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px; margin-top: 32px; }
     .year-btn {
       background: white; color: var(--indigo); border: 1.5px solid #dde2f5;
       padding: 13px 8px; text-align: center; border-radius: 8px;
-      cursor: pointer; font-family: 'DM Sans', sans-serif;
-      font-size: 14px; font-weight: 600; transition: all 0.2s;
+      cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
+      transition: all 0.2s;
     }
-    .year-btn:hover {
-      background: var(--indigo); color: white; border-color: var(--indigo);
-      transform: translateY(-2px); box-shadow: 0 6px 16px rgba(47,62,158,0.25);
+    .year-btn:hover { background: var(--indigo); color: white; border-color: var(--indigo); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(47,62,158,0.25); }
+    .year-btn.active { background: var(--navy); color: var(--gold); border-color: var(--navy); }
+
+    /* ── ARTICLE DRAWER ── */
+    .drawer-backdrop {
+      display: none; position: fixed; inset: 0; background: rgba(10,15,40,0.5);
+      backdrop-filter: blur(4px); z-index: 300;
     }
+    .drawer-backdrop.open { display: block; }
+
+    .drawer {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: min(640px, 100vw);
+      background: var(--cream);
+      z-index: 400;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex; flex-direction: column;
+      box-shadow: -8px 0 40px rgba(0,0,0,0.18);
+    }
+    .drawer.open { transform: translateX(0); }
+
+    /* Drawer header */
+    .drawer-header {
+      background: var(--navy); padding: 28px 32px 24px;
+      flex-shrink: 0;
+    }
+    .drawer-header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .drawer-year-tag { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .drawer-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: white; line-height: 1.2; }
+    .drawer-subtitle { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 6px; }
+    .drawer-close {
+      background: rgba(255,255,255,0.1); border: none; color: white;
+      width: 36px; height: 36px; border-radius: 8px; cursor: pointer;
+      font-size: 18px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: background 0.2s;
+    }
+    .drawer-close:hover { background: rgba(255,255,255,0.2); }
+
+    /* Drawer body */
+    .drawer-body { flex: 1; overflow-y: auto; padding: 28px 32px 40px; }
+    .drawer-body::-webkit-scrollbar { width: 4px; }
+    .drawer-body::-webkit-scrollbar-track { background: transparent; }
+    .drawer-body::-webkit-scrollbar-thumb { background: #dde2f5; border-radius: 2px; }
+
+    /* Quarter sections */
+    .drawer-quarter { margin-bottom: 32px; }
+    .drawer-quarter-label {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 700; color: var(--navy);
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 14px; padding-bottom: 10px;
+      border-bottom: 2px solid var(--light);
+    }
+    .drawer-quarter-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+    /* Article rows */
+    .article-row {
+      display: flex; align-items: center; gap: 12px;
+      background: white; border: 1.5px solid #eaedf7; border-radius: 10px;
+      padding: 14px 16px; margin-bottom: 8px;
+      transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .article-row:hover { border-color: var(--indigo); transform: translateX(3px); box-shadow: 0 3px 12px rgba(47,62,158,0.1); }
+    .article-row-icon { font-size: 18px; flex-shrink: 0; }
+    .article-row-name { flex: 1; font-size: 14px; color: var(--text); line-height: 1.45; }
+    .article-dl-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--navy); color: white;
+      text-decoration: none; padding: 7px 14px;
+      border-radius: 6px; font-size: 12px; font-weight: 700;
+      white-space: nowrap; flex-shrink: 0;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .article-dl-btn:hover { background: var(--indigo); transform: translateY(-1px); }
+
+    /* No data */
+    .drawer-no-data { text-align: center; padding: 60px 20px; color: var(--muted); }
+    .drawer-no-data h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--navy); margin-bottom: 10px; }
+    .drawer-count { display: inline-block; background: var(--light); color: var(--muted); font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; margin-bottom: 24px; }
 
     /* ── GALLERY ── */
     .gallery-wrapper { background: var(--navy); padding: 72px 0; }
     .gallery-header { max-width: 1200px; margin: 0 auto 16px; padding: 0 80px; }
     .gallery-header .section-label { color: rgba(201,168,76,0.9); }
-    .gallery-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(26px, 4vw, 38px); color: white; line-height: 1.2;
-    }
-
-    /* Download All + hint row */
-    .gallery-actions {
-      max-width: 1200px; margin: 0 auto 28px; padding: 0 80px;
-      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-    }
-    .btn-download-all {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--gold); color: var(--navy);
-      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700;
-      padding: 10px 22px; border-radius: 8px; border: none;
-      cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
-    }
+    .gallery-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 38px); color: white; line-height: 1.2; }
+    .gallery-actions { max-width: 1200px; margin: 0 auto 28px; padding: 0 80px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .btn-download-all { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700; padding: 10px 22px; border-radius: 8px; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
     .btn-download-all:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,168,76,0.4); }
     .gallery-hint { color: rgba(255,255,255,0.4); font-size: 13px; }
-
-    .gallery-container {
-      overflow: hidden; width: 100%; padding: 8px 0; position: relative;
-    }
-    .gallery-container::before, .gallery-container::after {
-      content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
-    }
+    .gallery-container { overflow: hidden; width: 100%; padding: 8px 0; position: relative; }
+    .gallery-container::before, .gallery-container::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
     .gallery-container::before { left: 0; background: linear-gradient(to right, var(--navy), transparent); }
-    .gallery-container::after  { right: 0; background: linear-gradient(to left, var(--navy), transparent); }
-
-    .gallery-track {
-      display: flex; gap: 16px; width: max-content;
-      animation: scrollGallery 60s linear infinite;
-    }
+    .gallery-container::after { right: 0; background: linear-gradient(to left, var(--navy), transparent); }
+    .gallery-track { display: flex; gap: 16px; width: max-content; animation: scrollGallery 60s linear infinite; }
     .gallery-track:hover { animation-play-state: paused; }
-
-    /* Each image wrapper — click to open lightbox, hover to show overlay */
-    .gallery-item {
-      position: relative; flex-shrink: 0;
-      width: 260px; height: 190px;
-      border-radius: 10px; overflow: hidden;
-      cursor: pointer;
-      border: 2px solid rgba(255,255,255,0.08);
-      transition: border-color 0.3s, transform 0.3s;
-    }
+    .gallery-item { position: relative; flex-shrink: 0; width: 260px; height: 190px; border-radius: 10px; overflow: hidden; cursor: pointer; border: 2px solid rgba(255,255,255,0.08); transition: border-color 0.3s, transform 0.3s; }
     .gallery-item:hover { border-color: var(--gold); transform: scale(1.04); }
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    /* Hover overlay with "View" label */
-    .gallery-item-overlay {
-      position: absolute; inset: 0;
-      background: rgba(26,37,96,0.65);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; transition: opacity 0.25s;
-    }
+    .gallery-item-overlay { position: absolute; inset: 0; background: rgba(26,37,96,0.65); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.25s; }
     .gallery-item:hover .gallery-item-overlay { opacity: 1; }
-    .overlay-view-btn {
-      background: var(--gold); color: var(--navy);
-      font-size: 12px; font-weight: 700; padding: 8px 18px;
-      border-radius: 6px; display: flex; align-items: center; gap: 6px;
-    }
-
-    @keyframes scrollGallery {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
+    .overlay-view-btn { background: var(--gold); color: var(--navy); font-size: 12px; font-weight: 700; padding: 8px 18px; border-radius: 6px; }
+    @keyframes scrollGallery { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* ── LIGHTBOX ── */
-    .lightbox {
-      display: none; position: fixed; inset: 0; z-index: 9999;
-      background: rgba(8, 12, 35, 0.93);
-      align-items: center; justify-content: center; flex-direction: column; gap: 20px;
-      backdrop-filter: blur(8px);
-    }
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(8,12,35,0.93); align-items: center; justify-content: center; flex-direction: column; gap: 20px; backdrop-filter: blur(8px); }
     .lightbox.open { display: flex; }
-
-    .lightbox-img {
-      max-width: 86vw; max-height: 68vh;
-      border-radius: 12px; object-fit: contain;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.7);
-      transition: opacity 0.2s;
-    }
-
-    .lightbox-controls {
-      display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center;
-    }
-    .lb-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 11px 24px; border-radius: 8px;
-      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
-      cursor: pointer; border: none; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s;
-    }
+    .lightbox-img { max-width: 86vw; max-height: 68vh; border-radius: 12px; object-fit: contain; box-shadow: 0 30px 80px rgba(0,0,0,0.7); }
+    .lightbox-controls { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center; }
+    .lb-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 24px; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; border: none; text-decoration: none; transition: transform 0.15s; }
     .lb-btn:hover { transform: translateY(-2px); }
     .lb-btn-download { background: var(--gold); color: var(--navy); }
-    .lb-btn-download:hover { box-shadow: 0 6px 20px rgba(201,168,76,0.4); }
     .lb-btn-close { background: rgba(255,255,255,0.1); color: white; }
     .lb-counter { color: rgba(255,255,255,0.4); font-size: 13px; min-width: 60px; text-align: center; }
-
-    /* Prev / Next arrows */
-    .lb-nav {
-      position: fixed; top: 50%; transform: translateY(-50%);
-      background: rgba(255,255,255,0.08); color: white;
-      border: 1.5px solid rgba(255,255,255,0.15);
-      border-radius: 50%; width: 50px; height: 50px;
-      font-size: 20px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s; z-index: 10000;
-    }
+    .lb-nav { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.08); color: white; border: 1.5px solid rgba(255,255,255,0.15); border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 10000; }
     .lb-nav:hover { background: rgba(255,255,255,0.22); }
     .lb-nav-prev { left: 20px; }
     .lb-nav-next { right: 20px; }
 
     /* ── CONTACT ── */
     .contact-bg { background: var(--light); }
-    .contact-inner {
-      max-width: 1200px; margin: 0 auto; padding: 72px 80px;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
-    }
+    .contact-inner { max-width: 1200px; margin: 0 auto; padding: 72px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
     .contact-info h2 { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--navy); margin-bottom: 24px; }
     .contact-detail { display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start; }
-    .contact-icon {
-      width: 40px; height: 40px; border-radius: 10px; background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0;
-    }
+    .contact-icon { width: 40px; height: 40px; border-radius: 10px; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
     .contact-text strong { display: block; font-size: 13px; color: var(--muted); font-weight: 500; margin-bottom: 2px; }
     .contact-text span { font-size: 15px; color: var(--text); }
     .contact-card { background: var(--navy); color: white; padding: 40px; border-radius: 16px; }
@@ -285,6 +221,9 @@
       .gallery-header, .gallery-actions { padding: 0 24px; }
       .contact-inner { grid-template-columns: 1fr; padding: 48px 24px; }
       .years { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
+      .drawer { width: 100vw; }
+      .drawer-header { padding: 20px; }
+      .drawer-body { padding: 20px; }
       .lb-nav-prev { left: 8px; }
       .lb-nav-next { right: 8px; }
     }
@@ -310,9 +249,7 @@
     <div class="hero-tag">Est. 1975</div>
     <h1>Association of Writers &amp; Illustrators for Children</h1>
     <p>Promoting children's literature across India since 1975</p>
-    <button class="btn" onclick="document.getElementById('articles').scrollIntoView({behavior:'smooth'})">
-      Explore Articles
-    </button>
+    <button class="btn" onclick="document.getElementById('articles').scrollIntoView({behavior:'smooth'})">Explore Articles</button>
   </div>
 </div>
 
@@ -341,7 +278,7 @@
       <h2>AWIC Brochure</h2>
       <p>Learn more about our mission, publications, and upcoming events.</p>
     </div>
-    <button class="btn-outline" onclick="alert('Brochure PDF link coming soon!')">View Brochure ↓</button>
+    <button class="btn-outline" onclick="alert('Brochure PDF link coming soon!')">View Brochure &#8595;</button>
   </div>
 </div>
 
@@ -350,9 +287,25 @@
   <div class="articles-section" id="articles">
     <div class="section-label">Archive</div>
     <h2>AWIC Journal Articles</h2>
-    <p style="color:var(--muted);font-size:15px;margin-top:8px;">Select a year to browse articles from that edition.</p>
+    <p style="color:var(--muted);font-size:15px;margin-top:8px;">Select a year to browse and download articles from that edition.</p>
     <div class="years" id="yearsContainer"></div>
   </div>
+</div>
+
+<!-- ARTICLE DRAWER -->
+<div class="drawer-backdrop" id="drawerBackdrop" onclick="closeDrawer()"></div>
+<div class="drawer" id="articleDrawer">
+  <div class="drawer-header">
+    <div class="drawer-header-top">
+      <div>
+        <div class="drawer-year-tag">Journal Archive</div>
+        <div class="drawer-title" id="drawerTitle">Articles</div>
+        <div class="drawer-subtitle" id="drawerSubtitle"></div>
+      </div>
+      <button class="drawer-close" onclick="closeDrawer()">&#x2715;</button>
+    </div>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
 </div>
 
 <!-- GALLERY -->
@@ -401,7 +354,7 @@
         <div class="contact-text"><strong>Phone</strong><span>+91-11-43603831</span></div>
       </div>
       <div class="contact-detail">
-        <div class="contact-icon">&#9993;&#65039;</div>
+        <div class="contact-icon">&#9993;</div>
         <div class="contact-text"><strong>Email</strong><span>info@awic.in</span></div>
       </div>
     </div>
@@ -414,142 +367,433 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>&#169; 2024 <span>AWIC</span> &#8212; Association of Writers &amp; Illustrators for Children. All rights reserved.</footer>
 
 <script>
-  // ─────────────────────────────────────────────
-  // IMAGE IDS (all 48 photos from Google Drive)
-  // ─────────────────────────────────────────────
-  const imageIds = [
-    "1CXH2P_vhLcmJNN4KuzTcW9voJanzvHSE","1kDBzndP_txdnpVg0M-VFyciiL0Tb3TSX",
-    "1Uj2IOFWVAhXKgN7Tb9XYbEpIDRQYXuqi","12l7DQ7lgch4scaceAxygUvl5mHzI29N3",
-    "1NvGJCbPgyDewTBLHwBNQPXTFq1dWvm8S","1FVF4Ocx2R_B2tD6wabjr9vT3rktJT0hP",
-    "1SokV7Fq3-51KhwUb7oQCQLrq0_KuyVzo","1g7cOlSp2YC7a3LQPTwt07-i8cebb9zCB",
-    "1V_8oV-KOSWp8fwLzWd9V0w-K_RUwqSdZ","1JuWtH9414BZiGZ5KbuhZIt4-H8m4yiGZ",
-    "1GIkojgcYtUl0pIQB9DCikf2V0gLI6kWh","17_S-8aurhj-rMrunHm30dnSFXMvbGNBX",
-    "1FNQu301arhwjX1ECPYXhKJLjBj02WIAI","1iVDEHnOB-3dRLx7xga2k6t4eXccFJFkL",
-    "1lPN2kttfsKP-MZZImNwpiEkn84Hk_uzt","1D0Z5VZw5ENACI7DQLuGPMmfeWbB67vg7",
-    "1EqejmbbIhjmuODyG3szoQBNkavEjV3p7","1WLqMhmv6Itjq9OrXGzOKuNFo4bGd83I1",
-    "1-jYk5sdWP2WUzEoNxzrmYqD5rHtR96GC","19lnkWqphPY1ysxW4TH_sw1Ly9eTUjWXp",
-    "18nhSn6iiRlSWUBWK3xrXAnia9YSgUEOC","1gk98cAqHqI0-P9lweRVJUQv87B_G0oI5",
-    "1nb-F-0Ygj5IgzPmqUVHgdi-AsVfHog_N","1G3O6mtF2FkDFdvGEqcwHLIVTwRiNxJf_",
-    "1_9l5dxa5lTaOqNte2W6rtO4WCe3IxRxg","1kEHAns03PEHuZI67_O_UOP0ttRU0QWs5",
-    "1_7lK-Zu7haPp4OVEzYeYGm-8KvIXJOs8","1U8NYKHukKElnAdc2gJH4pR4HM946m0O1",
-    "19qgeSSHjtEGuYcn-PzxCt337dBB9mGST","1M91_fc1cir38n3KgskS8u2OfNH4W78UC",
-    "1njS4Uce372m8znR0ryLK5LdUkUk3vb47","1DkomeHM23VaIMGi2NyOCfdKyjYSw9pwc",
-    "1yJ463YXd8dktK4cl6pWoZ5hkF0cH5oUC","1DizEze3rjaZ2fpMVudLtas-5VPv8fcco",
-    "1xR2TkXz-5eTEaM80i259EV9vgBMO9AwU","1nL0MJg46sFh6bTObz6sKfTyldI4muA0W",
-    "19u9sUjAf25m6GLjbywQk2ZYtT-NR70fG","1M6ucWGsK24wrRbEm4Oh2dcq5UXLyueEO",
-    "1hPfNKzdTb-1bOJZ6Uv5_pn24pcw50bQz","1Qc61GdEcOAHXtHtOQP5tj22xEz7C5le4",
-    "1tdiqVu1kmImJH7MjWjpH7mlK2uV-LLba","1oBnyR73ojnC7M_X58Zq1xW7clk75M79a",
-    "1Tz6S1IJU5_MeWklhV8aAIqfgwtbjUQcr","1SktX1ukI5PbHJ_fSzJ4AXSIn81y0ybUJ",
-    "1rKa98CASWf4V9KHbwdQdmM_1fa0VXYui","1Bs0ckpundj2ZjbqDtOmc-imBIGg51YZF",
-    "1hcHvnlgBULIqz8OUwParK9Ykg5DR-TRL","1k09vk8hjleOmIugd3pwXKNX926m1S2wF"
-  ];
+// ════════════════════════════════════════════════
+// ARTICLE DATA — all years
+// ════════════════════════════════════════════════
+const allData = {
+  "1981": [
+    { section: "Oct-Dec Vol 1 No 1", files: [
+      { name: "Nirankar Dev Sewak History and Devlopment of Child", link: "https://drive.google.com/file/d/1Kaln5d0PfGkIMeretaMdWunkEzgaQkU2/view" },
+      { name: "Shankar Author and Illustrator for Children by Alaka Shankar", link: "https://drive.google.com/file/d/1Fw_1cfCR5d0JPfMnS-m63eNsdKOXEsMW/view" },
+      { name: "Writing fiction for children by Manorama Jafa", link: "https://drive.google.com/file/d/1csxxSJYHpxyOVV170OVlmdIRBDgmWi1j/view" }
+    ]}
+  ],
+  "1982": [
+    { section: "Jan-Mar Vol 1 No 2", files: [
+      { name: "Satyjit Ray Author & Illustrator for children by Lila Majumdar", link: "https://drive.google.com/file/d/1rNiTTuAIokahTut7Ys35w7gbcxDCubos/view" },
+      { name: "Children's Magazines in Gujarat by Arvind P. Dave", link: "https://drive.google.com/file/d/1ofIAxZcQ6CBEwd3BNAegkUEDMl9mq6Tm/view" },
+      { name: "Panchatantra - A Passage Through Centuries by Manorama Jafa", link: "https://drive.google.com/file/d/172r9vLfkVF2GEGqIscbX1Nl7tgHaYgdk/view" }
+    ]},
+    { section: "July-Sept Vol 1 No 4", files: [
+      { name: "Children's Poetry in Indian Laguage by Nirankar Dev Sewak", link: "https://drive.google.com/file/d/15yi-fh83T1N-7z8VGC5viaoNL_9h6XZr/view" },
+      { name: "The Role of Children's Books in Integranting Handicapped Children into Everday Life by Tordis orjasaetez", link: "https://drive.google.com/file/d/18tHmhXLAp067AjauVVEfESSC-HesqzlH/view" }
+    ]},
+    { section: "Oct-Dec Vol 2 No 1", files: [
+      { name: "Development of Children's Literature in Oriya by Jagannath Mohanty", link: "https://drive.google.com/file/d/1_g0baIEIW240vRrPbawQfp4wN6mJW3Z5/view" },
+      { name: "Childrens Poet Harindranath Chattopadhyaya by S.P. Chatterjea", link: "https://drive.google.com/file/d/125GYUh9YdvN9ZeUO_d2sShYktZXejoeQ/view" },
+      { name: "Books for Tiny Tots by Manorama Jafa", link: "https://drive.google.com/file/d/1UlRi13wniQd9ig6-SjKGQNBnNUpvUf-s/view" },
+      { name: "Dialogue The Spice of Fiction by Vrinda Kumble", link: "https://drive.google.com/file/d/1UlRi13wniQd9ig6-SjKGQNBnNUpvUf-s/view" }
+    ]}
+  ],
+  "1983": [
+    { section: "July-Sept Vol 2 No 4", files: [
+      { name: "Children's Magazines in Bengali by Swapna Dutta", link: "https://drive.google.com/file/d/1QwEEF4K2Uczdfr0pWoEMmS9meRpJBUFh/view" },
+      { name: "Ramakrushna Nand Author and Illustrator for Children by Jagannath Mohanty", link: "https://drive.google.com/file/d/1UZSl5JJFC5aiKNd8RTAFZihPGFdQXzrt/view" },
+      { name: "Illustrating First Book by Sigrun Srivastava", link: "https://drive.google.com/file/d/1UZSl5JJFC5aiKNd8RTAFZihPGFdQXzrt/view" },
+      { name: "Translating Books for Children by Manorama Jafa", link: "https://drive.google.com/file/d/1GitjMmAcwZdPh1dfpLWgnLVmPhck8UrG/view" },
+      { name: "Parents Awarness of Reading Habits of Children by Ira Saxena", link: "https://drive.google.com/file/d/143z5jER4ifKYH9yWpSJWnKX7_D8-z2J-/view" },
+      { name: "Comic Reading - A.S. Chandel", link: "https://drive.google.com/file/d/1TiD_-M7KaJoyyHNK3_jgufmnRx3NoRct/view" }
+    ]},
+    { section: "Oct-Dec Vol 3 No 1", files: [
+      { name: "Kalvi Gopalakrishnan by Indira Ananthakrishnan", link: "https://drive.google.com/file/d/1AHrBGNnZXdYrowK9k6_kMfiIYkecRoQV/view" },
+      { name: "Development of Children's Literature in Telugu by Velaga Venkatappaiah", link: "https://drive.google.com/file/d/1lX61aTIiERb3AGvKMn-cSsrcvp4-rrV_/view" },
+      { name: "Literature for Preschool Children by Vinita Krishna", link: "https://drive.google.com/file/d/16h5lUFlR0fnojyqHZZZZZ/view" },
+      { name: "Promoting Children's Literature Awards for Children's Books by Sunita Rao", link: "https://drive.google.com/file/d/1kpOp6Cyy3k42AbYCsBisSIsmBn4IWdzE/view" }
+    ]}
+  ],
+  "1984": [
+    { section: "Jan-Mar Vol 3 No 2", files: [
+      { name: "Promotion of Children's Literature (Keynote Address) by Manorama Jafa", link: "https://drive.google.com/file/d/1OmkmZVo7Z-6yFVtUsyqqk1vy1rKkuOnn/view" },
+      { name: "Rise of the Adult-Centred Child in Hindi-Children's Literature (1930-1980) by Krishna Kumar", link: "https://drive.google.com/file/d/1ptWimkudIWkkBtF0WaRTj-Xxmwk_wPDx/view" },
+      { name: "Artist with the Magic Touch - Jagdish Joshi by Nilima Sinha", link: "https://drive.google.com/file/d/1MZYv9GtNIR874uj3ePzBoPTwnA3fWM3O/view" },
+      { name: "The Panchatantra and the Fables of Bidpai by Edward Denison Ross", link: "https://drive.google.com/file/d/18NrffqNNjGwnlWY3N-smeToVRGzwoclp/view" }
+    ]},
+    { section: "April-June Vol 3 No 3", files: [
+      { name: "Devlopment of Children's Literature in Marathi by Sarita Padki", link: "https://drive.google.com/file/d/1iF03RVhAjuVkSOd85cVdDqr1DB0C_-vn/view" },
+      { name: "Children's Magazines in Telugu - a survey and analysis by V. Venkatappaiah", link: "https://drive.google.com/file/d/1vbqCmtZbxU7mgEqs-LFCxPTEPiVvqNb2/view" },
+      { name: "Writing Humour for Children by Manorama Jafa", link: "https://drive.google.com/file/d/1YxjmtdksWE_9cWT95jHhNFU8j_zKjHlS/view" },
+      { name: "Bhagwats of Pune Writers for Children by Malati Deshpande", link: "https://drive.google.com/file/d/1EYHWYh0bq232rTnXEzI8xPVnA5n9Mh79/view" },
+      { name: "Reading Habits and Mass Media by Prabha Chandrasekhar", link: "https://drive.google.com/file/d/1PKO0i6t2df_R6Q_xoa_ut-fVTCTK-94g/view" }
+    ]}
+  ],
+  "1985": [
+    { section: "Jan-Mar Vol 4 No 2", files: [
+      { name: "Children's Literature in India Today by Manorama Jafa", link: "https://drive.google.com/file/d/1fNZ0FqHpZmedb7urJEfaqvp_w73JMdF8/view" },
+      { name: "Soviet Children Read the Literature of India People by Igor Motiashov", link: "https://drive.google.com/file/d/1CFWI-FpLQVS2e48Cy_OxIKD1KfYsAHID/view" },
+      { name: "Illustrations of Children's Books in Modern India by Ira Saxena", link: "https://drive.google.com/file/d/11yaJUVS6HQvpNgKrwgxDk8zZ93Lw4NJi/view" },
+      { name: "Soviet Literature for Children and Youth in Translation by Surekha Panandiker", link: "https://drive.google.com/file/d/1iH6gcoYcmG9dIeVbRiipbn8xG00IVc3E/view" },
+      { name: "Manmath Nath Gupta by Shashi Jain", link: "https://drive.google.com/file/d/1-_v5YfjZEicf_-Veacwm-1wNj6XZEzoq/view" }
+    ]},
+    { section: "April-June & July-Sept Vol 4 No 3&4", files: [
+      { name: "The Indian Jataka Tales in Japanese Children's Books by Anita Khanna", link: "https://drive.google.com/file/d/1DYsUHeOT51UaMB_QD7z32quO627Yagp0/view" },
+      { name: "Children's Books - An Author's Point of View by Lila Majumdar", link: "https://drive.google.com/file/d/1OOeO-xlArbzhKftlutmvaw4MUVJBsNYx/view" },
+      { name: "Illustrating Books for Children - A Point of View by K.K.Hebbar", link: "https://drive.google.com/file/d/1Erds-_gnpMNMvzk6y-Lsb-Ssh-m6tklL/view" },
+      { name: "Books I Read in School by Sarala Jag Mohan", link: "https://drive.google.com/file/d/13J9QQphQ4VGHocct90RdBEjHAO-percE/view" }
+    ]},
+    { section: "Oct-Dec Vol 5 No 1", files: [
+      { name: "Current Trends in Indian Literature for Children by Swapna Dutta", link: "https://drive.google.com/file/d/1pSXLlWGrlNq5cuThRvDUTul4TqK9ATrA/view" },
+      { name: "Children's Books Today - An Editors Views by Vijaya Ghosh", link: "https://drive.google.com/file/d/1DnAotpatsmpszHUNCW6-9g0fGrr97FKd/view" },
+      { name: "Children's Books - Marketing, Distribution and Pricing by N.C.Rao", link: "https://drive.google.com/file/d/1TV63W9Cs4pfMCQdjwSO-doPAFuUyC7qX/view" },
+      { name: "Mrinal Mitra - Portrait of an Artist by Vinita Krishna", link: "https://drive.google.com/file/d/1uTnqCxQU3o3fOdDyB7KJCZFKbkoZsI6q/view" },
+      { name: "Comics in India - How objectionable They are by Manorama Jafa", link: "https://drive.google.com/file/d/1xD1KovxwnY8pytom6gPeybWTvnaUnVpY/view" }
+    ]}
+  ],
+  "1986": [
+    { section: "Jan-Mar Vol 5 No 2", files: [
+      { name: "Nursery Rhymes for Children in Telugu by Velaga Venkatappaiah", link: "https://drive.google.com/file/d/1yoLewL2JixDi5sZ1-urrT8xktueou6AO/view" },
+      { name: "Gijubhai Badheka - A Profile by Arvind P. Dave", link: "https://drive.google.com/file/d/1R7jM3NA5lHzhP_ANWTpWivI1QJ2Q7gRj/view" },
+      { name: "Promotion of Children's Literature - Illustrator's Point of View by Sigrun Srivastava", link: "https://drive.google.com/file/d/1WrIZf7rlBFNqswZTvrGyt1X7TWxn97Gu/view" },
+      { name: "Writing Science Books for Children by Dilip M.Salwi", link: "https://drive.google.com/file/d/1Sda6gTvrllO9ROt2r07jJWPCjyqeNACO/view" },
+      { name: "Future of Children's Books by Manorama Jafa", link: "https://drive.google.com/file/d/1Yrawp9Lnr5s-jB759Wk92849IhuUiUp-/view" }
+    ]},
+    { section: "April-June Vol 5 No 3", files: [
+      { name: "Aesop's Fables adapted from the Panchatantra Stories by Mukta G", link: "https://drive.google.com/file/d/1cKeHX83kweRDtwcmU1a5SHMo8oNo5i_F/view" },
+      { name: "AI Valliappa A Profile by Indira Ananthakrishnan", link: "https://drive.google.com/file/d/17gTBpqdntB1jrEyE4KOCnCb_i2KPY2yV/view" },
+      { name: "Children's Books and Audio-Visual Media by M.R.Kapoor", link: "https://drive.google.com/file/d/1sDl83tu5Ak0BAaaHFccSWLD0RP_9diOv/view" },
+      { name: "Value-Oriented Children's Literature by Sarala Jag Mohan", link: "https://drive.google.com/file/d/1cGreIU1COzDcJWg_HCVPFRgtW4G80rg5/view" },
+      { name: "Marketing and Distribution of Children's Books by C.M. Chawla", link: "https://drive.google.com/file/d/1LYZiCSb94-GdPTwmlxYoZdg6jfl9M4gx/view" },
+      { name: "Research Material in Children's Literature (English) by Rupa Gupta", link: "https://drive.google.com/file/d/12oRmwtr99C-Nglck6FLLc4w5Hv6qlr6m/view" }
+    ]},
+    { section: "Oct-Dec Vol 6 No 1", files: [
+      { name: "As Others See Us by Vrinda Kumble", link: "https://drive.google.com/file/d/1IWFXHucKgJqUx42cV2TH0vcJz_r0fToN/view" },
+      { name: "Modernism in Children's Fiction by Ira Saxena", link: "https://drive.google.com/file/d/1JPUL9ZVVBIBSQNbexIvv5i10uB0GhNHt/view" }
+    ]}
+  ],
+  "1987": [
+    { section: "Jan-Mar Vol 6 No 2", files: [
+      { name: "Literature for Pre-School Children by Manorama Jafa", link: "https://drive.google.com/file/d/1vhB0_4nLaJRBc2z19JevbNPj658XZ5os/view" },
+      { name: "Nursery Rhymes in Hindi by Sarla Bhatnagar", link: "https://drive.google.com/file/d/1VCl6ApTvgsM5JsIlABjYuSPIL8DUp3oD/view" },
+      { name: "Dilip M.Salwi - Portrait of a Science Writer by Dinesh Sinha", link: "https://drive.google.com/file/d/1ZVcsPfvnUnIgk54akIZYVGKr6fHCF8bE/view" },
+      { name: "Book-Talk - A Passage to Antarctica by Indira Ananthakrishnan", link: "https://drive.google.com/file/d/1I9oAzoAFjVvqD7wNkDircEW3FHOZdbCi/view" },
+      { name: "Why Do We Write for Children by R.K.Murthi", link: "https://drive.google.com/file/d/15G-ozVu6rFoMEwZTUThWFXwXUhcleAKm/view" },
+      { name: "Problems of Literature for Children and Juveniles by K. Seshadri", link: "https://drive.google.com/file/d/1ys0wLz5V4PZsE5fE5-B8QG0sDeWeXCIW/view" }
+    ]},
+    { section: "April-June Vol 6 No 3", files: [
+      { name: "Reboti Bhushan Ghosh - Profile of an Artist by Vinita Krishna", link: "https://drive.google.com/file/d/1HvFiq7wARoYrvsPQsW3DGdzHFxGalGmo/view" },
+      { name: "Children's Literature and Book Culture in Marathi by Surekha Panandiker", link: "https://drive.google.com/file/d/1tecFHAdVuz4IKH-VpcfHVFgv9ZNjKxjF/view" }
+    ]},
+    { section: "July-Sept Vol 7 No 4", files: [
+      { name: "Children's Books in Malayalam by I.K.K. Menon", link: "https://drive.google.com/file/d/1Juxcs3EmXiv3r3yYxgGTR4X6C87Sl3v-/view" },
+      { name: "Lila Majumdar - The Person & Literateur by Sisir Kumar Majumdar", link: "https://drive.google.com/file/d/1YYkZysA2KIWC1msUZKwzD_HDnW1tffOP/view" },
+      { name: "Content of Knowledge in Non-ficition for Children by Pratibha Nath", link: "https://drive.google.com/file/d/1ODWYJbgQvZ8aEIXQgA1WvUhIj4ZDqgLB/view" }
+    ]},
+    { section: "Oct-Dec Vol 8 No 1", files: [
+      { name: "Oriya Children's Literature for Pre-School Children by Jagannath Mohanty", link: "https://drive.google.com/file/d/12l69SHp1y-c_RsI8Lk-7mF9CxqLGMRD4/view" },
+      { name: "Children's Literature in Nepali by Chura M. Bandhu", link: "https://drive.google.com/file/d/16WBPV3P0hhw6Njv8io29eh9c5e8Ao1IL/view" },
+      { name: "Science Fiction for Children by R.K.Murthi", link: "https://drive.google.com/file/d/1cWoJwDrBDMuW5zUZN6qBwUKFpVEbSoT9/view" },
+      { name: "The Element of Fantasy In Writing a Science Fiction by Ira Saxena", link: "https://drive.google.com/file/d/1uYrh3byVAdBsnhnhA9ROijDJZambI-eX/view" }
+    ]}
+  ],
+  "1988": [
+    { section: "Jan-Mar Vol 7 No 2", files: [
+      { name: "Trends in Children's Books in India by Manorama Jafa", link: "https://drive.google.com/file/d/14W_1YamkC-lJtAsFE8w8ihotFhl4pwTv/view" },
+      { name: "Master Story-Teller of Gujarat - Harish Nayak by Surekha Panandiker", link: "https://drive.google.com/file/d/1avtt4U28_NYtkPdUAs1qYw4qsxC2L0Im/view" },
+      { name: "Children's Encyclopedia & Pictorial Dictionary in Oriya by Jagannath Mohanty", link: "https://drive.google.com/file/d/1GQB5p3EB1vpvVblrEgCC1_nynvZGRHvk/view" }
+    ]},
+    { section: "April-June Vol 7 No 3", files: [
+      { name: "Jagannath Mohanty A Profile by Digraj Brahma", link: "https://drive.google.com/file/d/1E_a7SdP3KNHjwtZPvCsYYwLfoROe9RfO/view" },
+      { name: "Children's Books National Integration by Nirankar Dev Sewak", link: "https://drive.google.com/file/d/1RU_4-rcw_dt-b2C6T9vMGWUTBPzBHqGu/view" },
+      { name: "Eklavya - A Unique Organisation by Surekha Panandiker", link: "https://drive.google.com/file/d/1IBDpjfr03zTSRrzeT9mBDz_DjC5KmTv6/view" },
+      { name: "Children's Book Publishing and the Promotion of the Reading Habit by C.N.Rao", link: "https://drive.google.com/file/d/1bTybexh_qBGaz3n1vT7xzFhbfdf6CRfe/view" },
+      { name: "Economics of Children's Book Publishing by P.C.Sandal", link: "https://drive.google.com/file/d/12mZSFtGiCFAcw10XCpuMrFsIxf_h3ikI/view" }
+    ]},
+    { section: "July-Sept Vol 7 No 4", files: [
+      { name: "Sohanlal Dwivedi Pioneer of Children's Literature in Hindi by Rashtrabandhu", link: "https://drive.google.com/file/d/1jHQX11HnHqW2e5z-9JQA34NRabVanYLq/view" },
+      { name: "Children's Literature in Telugu by Laxmi Rao", link: "https://drive.google.com/file/d/13Soxflu4A3IWDsgt8xhCzGpoIf9qVqp/view" },
+      { name: "Children's Books in Hindi by Geeta Lal Sahai", link: "https://drive.google.com/file/d/1THdV3Z0LnwbnFwW4F_ykKs36PnWOH72Y/view" },
+      { name: "AWIC Libraries for Children by Surekha Panandiker", link: "https://drive.google.com/file/d/1xEGhngo2WwcJfIDLQ3aRW77rMOxOGgud/view" }
+    ]},
+    { section: "Oct-Dec Vol 8 No 1", files: [
+      { name: "Shakuntala Sirothia - A Profile by Ira Saxena", link: "https://drive.google.com/file/d/1TPMl3h--JyK3O3iF_yViKdd2GPjZfHrK/view" },
+      { name: "Designing Children's Books by S.K. Mukhopadhyay", link: "https://drive.google.com/file/d/1LGPYGecU3YRO7hvif_Xe1An3PeziQpBI/view" },
+      { name: "What Young Adults Do Not Like to Read by R.K.Murthy", link: "https://drive.google.com/file/d/1Vbtr7HCkXUbUKTXBl55Jnn7nhJ5lTUNm/view" },
+      { name: "Our Winners of the Noma Concours", link: "https://drive.google.com/file/d/1d_hNN3vUER4cH5Jy_a2NqBflpHO93iz4/view" }
+    ]}
+  ],
+  "1989": [
+    { section: "Jan-Mar Vol 8 No 2", files: [
+      { name: "Kamaljit Nillon As Mano Billi - Uncle of Punjab Children by Kiran Babal", link: "https://drive.google.com/file/d/1592mNlMpXJlF7VHDZ2WPR2mF20lvde4V/view" },
+      { name: "Growing Up With Books by Ira Saxena", link: "https://drive.google.com/file/d/1rGmjmyW-aWG-Hty39bogYEP2mh9ZwpKq/view" }
+    ]},
+    { section: "April-June Vol 8 No 3", files: [
+      { name: "Bologna Diary 1989 by Surekha Panandiker", link: "https://drive.google.com/file/d/1u2IWLqm7SOI45QmgHRTRUmX6BZhYujjN/view" },
+      { name: "We Edited Mystery Stories by Nilima Sinha", link: "https://drive.google.com/file/d/1EfBbF0zKpupTeiJi1NY_htVkTm2Q8IgC/view" },
+      { name: "Book Talk - Can You Find Me by Ira Saxena", link: "https://drive.google.com/file/d/1Lt1kfaIv2WhRcndU8KrOBg_z6H2BwJu_/view" }
+    ]},
+    { section: "July-Sept Vol 8 No 4", files: [
+      { name: "Children's Literature and Research in India, Bangladesh, Sri Lanka and Nepal by Manorama Jafa", link: "https://drive.google.com/file/d/1rrgP3M1cJ1R4u1JX_Zv3YOUqDZ4vz4SP/view" },
+      { name: "Research in Oriya Children's Literature by Jagannath Mohanty", link: "https://drive.google.com/file/d/1REo506lmdewZCc9Zmr1ps_MSPhtlVkw-/view" },
+      { name: "Books For Pre-School Children by Navin Menon", link: "https://drive.google.com/file/d/1LqN7q9FVPVybB_poelxC-WmPgbtr6Isd/view" },
+      { name: "Indian Children's Literature Through Western Eyes by Arvind P. Dave", link: "https://drive.google.com/file/d/14QlPnUXon_jWs7uonEn0q7jekl5utN1X/view" },
+      { name: "AL Valliappa An Extinguished Beacon by Indira Ananthakrishnan", link: "https://drive.google.com/file/d/1bV_ak1lBHZ8soyKC_OgxGgrQfJiWEwzr/view" }
+    ]},
+    { section: "Oct-Dec Vol 9 No 1", files: [
+      { name: "Better Books for Children - Keynote Address by Manorama Jafa", link: "https://drive.google.com/file/d/1FLgZI0EBXBg-_QPcznUswDeh9DRgac7l/view" },
+      { name: "Author's Role in Production of Better Books by Nilima Sinha", link: "https://drive.google.com/file/d/1r3pGi2jS9Ft8IjMEN_Ncf-gEGhQo35dX/view" },
+      { name: "Nursery Rhymes Their Scope and Treatment by Leelawati Bhagwat", link: "https://drive.google.com/file/d/1dbVZz78xOFMnu4WF2mFv5mhANonMqEVQ/view" },
+      { name: "Better Books in English - Why not in Regional Languages by V.Venkatppaiah", link: "https://drive.google.com/file/d/1X6i0fR-gGmF5eRI6LM0tjlmvpUndxF9V/view" },
+      { name: "Book Illustration in India as a Profession by Jagdish Joshi", link: "https://drive.google.com/file/d/1SQ1Z0BLl0qlKdSjvXot_OVItTlnMK5xq/view" },
+      { name: "Translating Children's Literature - Crossing Language Barriers by Sarala Jag Mohan", link: "https://drive.google.com/file/d/16F06rzq-r4C-cjMkOUYP9ahAqYrOVVJJ/view" },
+      { name: "Children's Books Translation and Adaptation by Varsha Das", link: "https://drive.google.com/file/d/1CvFMNYyh6EF4iRS-sBQAMD6NaLwB00Er/view" },
+      { name: "Reaching Children Through Libraries by Surekha Panadiker", link: "https://drive.google.com/file/d/1sfiLQepBUqeNv8Pf_CCfq7TUBP9mvKhL/view" },
+      { name: "Children's Writing and Film Medium by T.S. Narasimhan", link: "https://drive.google.com/file/d/1JyH7VmhE8mQ8g9jiq8GThjgTE_2VgLfq/view" },
+      { name: "Bridging Cultural Barriers Through Children's Literature by Ira Saxena", link: "https://drive.google.com/file/d/1sU2ECtTj22ZyO0GXUgW2SZJQKICh_pm0/view" },
+      { name: "Better Books for Children by Andreas Bode", link: "https://drive.google.com/file/d/1fq67KJ-EIRaqcnsX4EKFpjxfswGRcJPS/view" },
+      { name: "Cooperation Between Developed and Developing Countries by Helene Schar", link: "https://drive.google.com/file/d/19H0bndiNmso4uCPbp-Y3-XKlmCTCxQPT/view" },
+      { name: "Cooperation in Children's Literature by C.M. Bandhu", link: "https://drive.google.com/file/d/1QFYn3ym-kS1vYXlRJkoz9YfK1-HHK0qy/view" },
+      { name: "Children's Literature - Links Between Countries by Neelam Hussain", link: "https://drive.google.com/file/d/18uKwlNd1ap4FDrvdXgYMp5g0gemOV_LW/view" }
+    ]}
+  ],
+  "1990": [
+    { section: "Jan-Mar Vol 8 No 2", files: [
+      { name: "Better Books for Children and their Illustrators by Priti", link: "https://drive.google.com/file/d/1FdXB6QDEINmMGoyNXpHEUY2OTWzsMf3R/view" },
+      { name: "Changing Trends in Themes for Children's Stories by Vaijayanti Savant Tonpe", link: "https://drive.google.com/file/d/1Y6dg9vghAaAQefS5rjpV2xEkeZgfXPu9/view" },
+      { name: "Significance of Translated works for Children's Literature by Indra Nath Choudhuri", link: "https://drive.google.com/file/d/1zLGtBKHrG9OIqlm4pt3nPqpBngJExAST/view" },
+      { name: "The importance of realism in illustrations for children by Manjula Padmanabhan", link: "https://drive.google.com/file/d/1eg0g9rxTsWW05HYdApGIyjQMfwQKhs1C/view" },
+      { name: "Better Adventure Stories for Children by Arup Kumar Dutta", link: "https://drive.google.com/file/d/1W2VGFEZShRyC7FuTumxDZIsGEgDhxsvT/view" },
+      { name: "Illustrating Better Books for Children by Subir Roy", link: "https://drive.google.com/file/d/1KQJl0hC920NPidR-5_kvgz6eCiFhnf71/view" },
+      { name: "Promoting Children's Literature - Some Innovations by Anant Pai", link: "https://drive.google.com/file/d/1ZY6L3IzkEqpfc_P1ANYH-8Nt7qwRBU7Q/view" },
+      { name: "Co-operation Between Countries in Children's Literature by Siti Zaleha", link: "https://drive.google.com/file/d/18kP-19yKbBKV2oajG2BPpfAmfQVP_oXS/view" },
+      { name: "Children's Literature Through Electronic Media by Kamini Kaushal", link: "https://drive.google.com/file/d/1vXiBFqiSa-f2MnIzyxr6QATaxYwJpmaW/view" },
+      { name: "Bringing Science to Children by Dilip M. Salwi", link: "https://drive.google.com/file/d/1TAsvWMfimkWbfFKPnl6d48e1RxMR9dH4/view" },
+      { name: "Cooperation Between Developing and Developed Countries by Lucia Binder", link: "https://drive.google.com/file/d/1RQ1ZNDcROpgdIYNcNXX-7-GBc0OgTIGc/view" },
+      { name: "Children's Books and the Media by Swapna Dutta", link: "https://drive.google.com/file/d/1WmB2bVVDpgavpwVQLcenWlXNngIW0PrZ/view" },
+      { name: "Changing Trends in Literature for Children in Gujarati by Abid Surti", link: "https://drive.google.com/file/d/1IBzq45Hi07vO-giE9tm9N8kdbNssJBdV/view" }
+    ]},
+    { section: "July-Sept Vol 9 No 4", files: [
+      { name: "History of Children's Literature in Urdu by Khushal Zaidi", link: "https://drive.google.com/file/d/1Ow4dozSl6BA7SRwM4o2cueHVHz3Rf_vC/view" },
+      { name: "Arup Kumar Dutta's World of Gripping Fiction by Nita Berry", link: "https://drive.google.com/file/d/1W3aofQSxPw4uR43iKwqmoYXj06XnUMlw/view" },
+      { name: "Children's Magazines in Hindi From 70 to 80 by Surendra Vikram", link: "https://drive.google.com/file/d/1FaoQpEr9BydQxHh9RtlZR7Bes4xxKU6T/view" },
+      { name: "Children's Encyclopaedia - Indian Experience by Jagannath Mohanty", link: "https://drive.google.com/file/d/10pVnRTEtiXKZFQOKlGiqfeyTQ_hb8YLa/view" },
+      { name: "Book-Talk - More Mystery Stories by Meera Bhatnagar", link: "https://drive.google.com/file/d/1AQaqFr7XtrirQ27L-nOfToC_GxkNzcZr/view" }
+    ]},
+    { section: "Oct-Dec Vol 10 No 1", files: [
+      { name: "IBBY-Asahi Reading Promotion Award 1991", link: "https://drive.google.com/file/d/1Y1_sc5YdVhEFq5vz_HIPceyf_yNs9Wlt/view" },
+      { name: "The AWIC Library Project (IBBY Award Winner 1991)", link: "https://drive.google.com/file/d/1a_ikqvi73bC3hJ0Lfx6gKKtAYvmp9w4X/view" },
+      { name: "AWIC Develops a Link between India and Switzerland by Ira Saxena", link: "https://drive.google.com/file/d/1A-hSV4Xy_UEIcd_FzNoTqpqWen1p3_GK/view" },
+      { name: "Feeding the Artist by Elaine Moss", link: "https://drive.google.com/file/d/1qt2keSQe9RsZ2Wgj3xEFxSgkEZS48sD3yeRHX/view" },
+      { name: "Books for the Young Adult - A Need by Indira Ananthakrishnan", link: "https://drive.google.com/file/d/1wmt6aTfLirQBul4oW4OXTIra57uk3j4u/view" },
+      { name: "Book Talk - A Playful Tiger Cub by Vaijayanti Sawant Tonpe", link: "https://drive.google.com/file/d/1gx3CSzExSgkG-l5fkffGG6l0uQrxpab8/view" }
+    ]}
+  ],
+  "1991": [
+    { section: "Jan-Mar Vol 10 No 2", files: [
+      { name: "Notable Children's Magazines in English and Hindi by Manorama Jafa", link: "https://drive.google.com/file/d/1BB4FGUk8W9p-VCFdz3iXUq9eQtfWQ6On/view" },
+      { name: "Institutions and Associations for Promotion of Children's Literature by Jagannath Mohanty", link: "https://drive.google.com/file/d/1mF2jKfla2-rR6NNCjX3YHjFYGo3zQ58G/view" },
+      { name: "Profile Badri Narayan - The Man with a Magic Brush by Jaya Paramasivan", link: "https://drive.google.com/file/d/1VYRc08MfDnu4Rx9d8fIlwoWUFNyYP-9c/view" }
+    ]},
+    { section: "July-Sept Vol 10 No 4", files: [
+      { name: "National Exhibition of Original Art by Manorama Jafa", link: "https://drive.google.com/file/d/1etbor03U8z4kbi1o1lqo5NaGcAxtuKnf/view" },
+      { name: "The Image of India in American Children's Fiction by Meena Khorana", link: "https://drive.google.com/file/d/1vF1UL7LUDA2PdIKsI0y4l-GzQYvbEBN2/view" },
+      { name: "Ramesh Bedi - A Profile", link: "https://drive.google.com/file/d/158G2Z_JjRxi7gg8l_d2rqEOyz5Ns2uQ5/view" }
+    ]},
+    { section: "Oct-Dec Vol 11 No 1", files: [
+      { name: "Pulak Biswas A Profile by Jaya Paramasivan", link: "https://drive.google.com/file/d/1BnerhJT2OSBcJauIRZvpDIALaUqXuoeu/view" },
+      { name: "National Seminar on Culture, Literature and Children by Nita Berry", link: "https://drive.google.com/file/d/1NTyksWlhLxSCSkjGbobDp3ERYVlmVdJ0/view" }
+    ]}
+  ],
+  "1992": [
+    { section: "April-June Vol 11 No 3", files: [
+      { name: "India at Bologna 1992", link: "https://drive.google.com/file/d/1H9bZZpCbuLd5kpxHHKzm1AXzr1v1KaO9/view" },
+      { name: "Akshay Kumar Jain - A Pioneer in Hindi Children's Literature by Pratibha Nath", link: "https://drive.google.com/file/d/1a5CO230P_HBCuJweNYw_EUSewmz06JuC/view" }
+    ]},
+    { section: "July-Sept Vol 11 No 4", files: [
+      { name: "Satyajit Ray Remembered by Manorama Jafa", link: "https://drive.google.com/file/d/1ETxo22Y42nzQ-zgiTUGpk9vFmaXZxY9O/view" },
+      { name: "Ray and His Feluda Novels by Tapati Chowdhurie", link: "https://drive.google.com/file/d/1N7461osnYmDjR-goOEw9tkzENd22KhMD/view" },
+      { name: "An Artist - By Inheritance by Marie Seton", link: "https://drive.google.com/file/d/1b9hnlyj8jyJXq-piJQRNk8LuDychr59q/view" },
+      { name: "Suddhasattwa Basu - A Profile by Thangam Krishnan", link: "https://drive.google.com/file/d/1OmPJqrrD_ctDOL29S2NBzLkIRgltjeF/view" },
+      { name: "The Hans Christian Andersen Awards 1992 by Leena Maissen", link: "https://drive.google.com/file/d/1ql_sjhM5ckuRw3H5-mrO5sxF9k7p7RFw/view" }
+    ]},
+    { section: "Oct-Dec Vol 11 No 1", files: [
+      { name: "Ashish Bagchi - An Artist for Children by R.K.Murthi", link: "https://drive.google.com/file/d/1SJvNXhrWYJf_Q9KYMo4MMhEom90osXeq/view" },
+      { name: "Once Upon a Time LALLA - A Children's Magazine in Hindi by Pramila Sharma", link: "https://drive.google.com/file/d/1aCa2Me1wCiXaVlfj3AznIxAaacvWNvsR/view" },
+      { name: "Western Influence on Children's Literature in English 1979-91", link: "https://drive.google.com/file/d/1f2Jp8cfp4AsUeN-74UCETSFxCt5GPSEI/view" }
+    ]}
+  ]
+  // Add 1993-2024 data here following the same pattern
+};
 
-  // ─────────────────────────────────────────────
-  // BUILD GALLERY (items + duplicate for scroll)
-  // ─────────────────────────────────────────────
-  window.onload = function () {
-    const track = document.getElementById("galleryTrack");
+// ════════════════════════════════════════════════
+// DRAWER — open/close
+// ════════════════════════════════════════════════
+let activeYearBtn = null;
 
-    const html = imageIds.map((id, i) => `
-      <div class="gallery-item" onclick="openLightbox(${i})">
-        <img
-          src="https://drive.google.com/thumbnail?id=${id}&sz=w400"
-          alt="AWIC photo ${i + 1}"
-          loading="lazy"
-          onerror="this.closest('.gallery-item').style.display='none'"
-        />
-        <div class="gallery-item-overlay">
-          <span class="overlay-view-btn">&#128269; View</span>
-        </div>
-      </div>`).join("");
+function openDrawer(year) {
+  // Highlight active year button
+  if (activeYearBtn) activeYearBtn.classList.remove('active');
+  activeYearBtn = document.querySelector('[data-year="' + year + '"]');
+  if (activeYearBtn) activeYearBtn.classList.add('active');
 
-    // Duplicate so the loop is seamless (CSS moves -50%)
-    track.innerHTML = html + html;
-  };
+  const data = allData[String(year)];
+  const drawer = document.getElementById('articleDrawer');
+  const backdrop = document.getElementById('drawerBackdrop');
 
-  // ─────────────────────────────────────────────
-  // LIGHTBOX
-  // ─────────────────────────────────────────────
-  let currentIndex = 0;
+  document.getElementById('drawerTitle').textContent = year + ' Journal Articles';
 
-  function openLightbox(index) {
-    currentIndex = index;
-    updateLightbox();
-    document.getElementById("lightbox").classList.add("open");
-    document.body.style.overflow = "hidden";
-    // Pause the auto-scroll while lightbox is open
-    document.getElementById("galleryTrack").style.animationPlayState = "paused";
-  }
+  const body = document.getElementById('drawerBody');
 
-  function closeLightbox() {
-    document.getElementById("lightbox").classList.remove("open");
-    document.body.style.overflow = "";
-    document.getElementById("galleryTrack").style.animationPlayState = "running";
-  }
+  if (!data || data.length === 0) {
+    document.getElementById('drawerSubtitle').textContent = '';
+    body.innerHTML =
+      '<div class="drawer-no-data">' +
+        '<h3>Coming Soon</h3>' +
+        '<p>Articles for ' + year + ' are being digitised and will be available shortly.</p>' +
+      '</div>';
+  } else {
+    const total = data.reduce(function(s, q) { return s + q.files.length; }, 0);
+    document.getElementById('drawerSubtitle').textContent =
+      total + ' article' + (total !== 1 ? 's' : '') + ' across ' +
+      data.length + ' issue' + (data.length !== 1 ? 's' : '');
 
-  function closeLightboxOnBackdrop(e) {
-    // Only close if the click is on the backdrop itself, not child elements
-    if (e.target === document.getElementById("lightbox")) closeLightbox();
-  }
+    let html = '<div class="drawer-count">' + total + ' articles &bull; ' + data.length + ' issues</div>';
 
-  function lbNav(dir) {
-    currentIndex = (currentIndex + dir + imageIds.length) % imageIds.length;
-    updateLightbox();
-  }
-
-  function updateLightbox() {
-    const id = imageIds[currentIndex];
-    document.getElementById("lightboxImg").src =
-      `https://drive.google.com/thumbnail?id=${id}&sz=w1200`;
-    document.getElementById("lightboxDownload").href =
-      `https://drive.google.com/uc?export=download&id=${id}`;
-    document.getElementById("lbCounter").textContent =
-      `${currentIndex + 1} / ${imageIds.length}`;
-  }
-
-  // Keyboard: Left/Right to navigate, Escape to close
-  document.addEventListener("keydown", e => {
-    if (!document.getElementById("lightbox").classList.contains("open")) return;
-    if (e.key === "ArrowLeft")  lbNav(-1);
-    if (e.key === "ArrowRight") lbNav(+1);
-    if (e.key === "Escape")     closeLightbox();
-  });
-
-  // ─────────────────────────────────────────────
-  // DOWNLOAD ALL
-  // Opens each photo's Drive download link with a staggered delay.
-  // Note: browser must allow pop-ups for this page.
-  // ─────────────────────────────────────────────
-  function downloadAll() {
-    const ok = confirm(
-      "This will open " + imageIds.length + " download links in new tabs.\n\n" +
-      "Please make sure your browser allows pop-ups from this site.\n\nProceed?"
-    );
-    if (!ok) return;
-    imageIds.forEach((id, i) => {
-      setTimeout(() => {
-        window.open("https://drive.google.com/uc?export=download&id=" + id, "_blank");
-      }, i * 250);
+    data.forEach(function(quarter) {
+      html += '<div class="drawer-quarter">' +
+        '<div class="drawer-quarter-label">' +
+          '<div class="drawer-quarter-dot"></div>' + quarter.section +
+        '</div>';
+      quarter.files.forEach(function(file) {
+        html +=
+          '<div class="article-row">' +
+            '<span class="article-row-icon">&#128196;</span>' +
+            '<span class="article-row-name">' + file.name + '</span>' +
+            '<a class="article-dl-btn" href="' + file.link + '" target="_blank">Download &#8599;</a>' +
+          '</div>';
+      });
+      html += '</div>';
     });
+    body.innerHTML = html;
   }
 
-  // ─────────────────────────────────────────────
-  // YEAR BUTTONS
-  // KEY FIX: use window.location.href so year.html
-  // receives the ?year= param correctly in the URL
-  // ─────────────────────────────────────────────
-  const yearsContainer = document.getElementById("yearsContainer");
-  for (let y = 1981; y <= 2024; y++) {
-    const btn = document.createElement("div");
-    btn.className = "year-btn";
-    btn.textContent = y;
-    btn.onclick = () => { window.location.href = "year.html?year=" + y; };
-    yearsContainer.appendChild(btn);
+  // Scroll drawer to top
+  body.scrollTop = 0;
+
+  // Open
+  backdrop.classList.add('open');
+  drawer.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDrawer() {
+  document.getElementById('articleDrawer').classList.remove('open');
+  document.getElementById('drawerBackdrop').classList.remove('open');
+  document.body.style.overflow = '';
+  if (activeYearBtn) { activeYearBtn.classList.remove('active'); activeYearBtn = null; }
+}
+
+// Close with Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    if (document.getElementById('lightbox').classList.contains('open')) { closeLightbox(); }
+    else { closeDrawer(); }
   }
+});
+
+// ════════════════════════════════════════════════
+// YEAR BUTTONS
+// ════════════════════════════════════════════════
+const yearsContainer = document.getElementById('yearsContainer');
+for (let y = 1981; y <= 2024; y++) {
+  const btn = document.createElement('div');
+  btn.className = 'year-btn';
+  btn.textContent = y;
+  btn.setAttribute('data-year', y);
+  btn.onclick = function() { openDrawer(y); };
+  yearsContainer.appendChild(btn);
+}
+
+// ════════════════════════════════════════════════
+// GALLERY
+// ════════════════════════════════════════════════
+const imageIds = [
+  "1CXH2P_vhLcmJNN4KuzTcW9voJanzvHSE","1kDBzndP_txdnpVg0M-VFyciiL0Tb3TSX",
+  "1Uj2IOFWVAhXKgN7Tb9XYbEpIDRQYXuqi","12l7DQ7lgch4scaceAxygUvl5mHzI29N3",
+  "1NvGJCbPgyDewTBLHwBNQPXTFq1dWvm8S","1FVF4Ocx2R_B2tD6wabjr9vT3rktJT0hP",
+  "1SokV7Fq3-51KhwUb7oQCQLrq0_KuyVzo","1g7cOlSp2YC7a3LQPTwt07-i8cebb9zCB",
+  "1V_8oV-KOSWp8fwLzWd9V0w-K_RUwqSdZ","1JuWtH9414BZiGZ5KbuhZIt4-H8m4yiGZ",
+  "1GIkojgcYtUl0pIQB9DCikf2V0gLI6kWh","17_S-8aurhj-rMrunHm30dnSFXMvbGNBX",
+  "1FNQu301arhwjX1ECPYXhKJLjBj02WIAI","1iVDEHnOB-3dRLx7xga2k6t4eXccFJFkL",
+  "1lPN2kttfsKP-MZZImNwpiEkn84Hk_uzt","1D0Z5VZw5ENACI7DQLuGPMmfeWbB67vg7",
+  "1EqejmbbIhjmuODyG3szoQBNkavEjV3p7","1WLqMhmv6Itjq9OrXGzOKuNFo4bGd83I1",
+  "1-jYk5sdWP2WUzEoNxzrmYqD5rHtR96GC","19lnkWqphPY1ysxW4TH_sw1Ly9eTUjWXp",
+  "18nhSn6iiRlSWUBWK3xrXAnia9YSgUEOC","1gk98cAqHqI0-P9lweRVJUQv87B_G0oI5",
+  "1nb-F-0Ygj5IgzPmqUVHgdi-AsVfHog_N","1G3O6mtF2FkDFdvGEqcwHLIVTwRiNxJf_",
+  "1_9l5dxa5lTaOqNte2W6rtO4WCe3IxRxg","1kEHAns03PEHuZI67_O_UOP0ttRU0QWs5",
+  "1_7lK-Zu7haPp4OVEzYeYGm-8KvIXJOs8","1U8NYKHukKElnAdc2gJH4pR4HM946m0O1",
+  "19qgeSSHjtEGuYcn-PzxCt337dBB9mGST","1M91_fc1cir38n3KgskS8u2OfNH4W78UC",
+  "1njS4Uce372m8znR0ryLK5LdUkUk3vb47","1DkomeHM23VaIMGi2NyOCfdKyjYSw9pwc",
+  "1yJ463YXd8dktK4cl6pWoZ5hkF0cH5oUC","1DizEze3rjaZ2fpMVudLtas-5VPv8fcco",
+  "1xR2TkXz-5eTEaM80i259EV9vgBMO9AwU","1nL0MJg46sFh6bTObz6sKfTyldI4muA0W",
+  "19u9sUjAf25m6GLjbywQk2ZYtT-NR70fG","1M6ucWGsK24wrRbEm4Oh2dcq5UXLyueEO",
+  "1hPfNKzdTb-1bOJZ6Uv5_pn24pcw50bQz","1Qc61GdEcOAHXtHtOQP5tj22xEz7C5le4",
+  "1tdiqVu1kmImJH7MjWjpH7mlK2uV-LLba","1oBnyR73ojnC7M_X58Zq1xW7clk75M79a",
+  "1Tz6S1IJU5_MeWklhV8aAIqfgwtbjUQcr","1SktX1ukI5PbHJ_fSzJ4AXSIn81y0ybUJ",
+  "1rKa98CASWf4V9KHbwdQdmM_1fa0VXYui","1Bs0ckpundj2ZjbqDtOmc-imBIGg51YZF",
+  "1hcHvnlgBULIqz8OUwParK9Ykg5DR-TRL","1k09vk8hjleOmIugd3pwXKNX926m1S2wF"
+];
+
+window.onload = function() {
+  const track = document.getElementById('galleryTrack');
+  const html = imageIds.map(function(id, i) {
+    return '<div class="gallery-item" onclick="openLightbox(' + i + ')">' +
+      '<img src="https://drive.google.com/thumbnail?id=' + id + '&sz=w400" alt="AWIC photo" loading="lazy" onerror="this.closest(\'.gallery-item\').style.display=\'none\'"/>' +
+      '<div class="gallery-item-overlay"><span class="overlay-view-btn">&#128269; View</span></div>' +
+    '</div>';
+  }).join('');
+  track.innerHTML = html + html;
+};
+
+// ════════════════════════════════════════════════
+// LIGHTBOX
+// ════════════════════════════════════════════════
+let currentIndex = 0;
+function openLightbox(i) {
+  currentIndex = i; updateLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('galleryTrack').style.animationPlayState = 'paused';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+  document.getElementById('galleryTrack').style.animationPlayState = 'running';
+}
+function closeLightboxOnBackdrop(e) { if (e.target === document.getElementById('lightbox')) closeLightbox(); }
+function lbNav(dir) { currentIndex = (currentIndex + dir + imageIds.length) % imageIds.length; updateLightbox(); }
+function updateLightbox() {
+  var id = imageIds[currentIndex];
+  document.getElementById('lightboxImg').src = 'https://drive.google.com/thumbnail?id=' + id + '&sz=w1200';
+  document.getElementById('lightboxDownload').href = 'https://drive.google.com/uc?export=download&id=' + id;
+  document.getElementById('lbCounter').textContent = (currentIndex + 1) + ' / ' + imageIds.length;
+}
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowLeft') lbNav(-1);
+  if (e.key === 'ArrowRight') lbNav(+1);
+});
+
+// ════════════════════════════════════════════════
+// DOWNLOAD ALL PHOTOS
+// ════════════════════════════════════════════════
+function downloadAll() {
+  if (!confirm('This will open ' + imageIds.length + ' download links.\nMake sure pop-ups are allowed.\n\nProceed?')) return;
+  imageIds.forEach(function(id, i) {
+    setTimeout(function() { window.open('https://drive.google.com/uc?export=download&id=' + id, '_blank'); }, i * 250);
+  });
+}
 </script>
 </body>
 </html>
