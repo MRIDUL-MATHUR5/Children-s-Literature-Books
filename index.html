@@ -57,13 +57,42 @@
     .stat-number { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--navy); }
     .stat-label { font-size: 13px; color: var(--muted); }
 
-    /* ── BROCHURE ── */
-    .brochure-strip { background: var(--navy); padding: 56px 80px; }
-    .brochure-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-    .brochure-inner h2 { font-family: 'Playfair Display', serif; font-size: 30px; color: white; margin-bottom: 8px; }
-    .brochure-inner p { color: rgba(255,255,255,0.6); font-size: 15px; }
-    .btn-outline { background: transparent; color: var(--gold); border: 2px solid var(--gold); padding: 13px 30px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; white-space: nowrap; font-family: 'DM Sans', sans-serif; transition: background 0.2s, color 0.2s; }
-    .btn-outline:hover { background: var(--gold); color: var(--navy); }
+    /* ── BROCHURES ── */
+    .brochure-strip { background: var(--navy); padding: 64px 80px; }
+    .brochure-section-inner { max-width: 1200px; margin: 0 auto; }
+    .brochure-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    .brochure-card {
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 22px 22px 18px;
+      display: flex; flex-direction: column; gap: 14px;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .brochure-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+    .brochure-card-icon { font-size: 28px; line-height: 1; }
+    .brochure-card-body { flex: 1; }
+    .brochure-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px; font-weight: 700; color: white; margin-bottom: 6px;
+    }
+    .brochure-card-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+    .brochure-dl-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--gold); color: var(--navy);
+      text-decoration: none; padding: 9px 18px; border-radius: 7px;
+      font-size: 13px; font-weight: 700; width: 100%;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .brochure-dl-btn:hover { opacity: 0.88; transform: translateY(-1px); }
 
     /* ── ARTICLES ── */
     .articles-bg { background: var(--light); }
@@ -216,7 +245,7 @@
       .section { padding: 48px 24px; }
       .about-grid { grid-template-columns: 1fr; gap: 32px; }
       .brochure-strip { padding: 40px 24px; }
-      .brochure-inner { flex-direction: column; text-align: center; }
+      .brochure-grid { grid-template-columns: 1fr; }
       .articles-section { padding: 48px 24px; }
       .gallery-header, .gallery-actions { padding: 0 24px; }
       .contact-inner { grid-template-columns: 1fr; padding: 48px 24px; }
@@ -271,14 +300,69 @@
   </div>
 </div>
 
-<!-- BROCHURE -->
+<!-- BROCHURES -->
 <div class="brochure-strip">
-  <div class="brochure-inner">
-    <div>
-      <h2>AWIC Brochure</h2>
-      <p>Learn more about our mission, publications, and upcoming events.</p>
+  <div class="brochure-section-inner">
+    <div class="section-label" style="color:rgba(201,168,76,0.9);">Publications</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,38px);color:white;margin-bottom:8px;line-height:1.2;">AWIC Brochures</h2>
+    <p style="color:rgba(255,255,255,0.55);font-size:15px;margin-bottom:36px;">Download our official publications and project brochures.</p>
+    <div class="brochure-grid">
+
+      <div class="brochure-card">
+        <div class="brochure-card-icon">&#128218;</div>
+        <div class="brochure-card-body">
+          <div class="brochure-card-title">AWIC Book Therapy Project</div>
+          <div class="brochure-card-desc">Promoting reading as therapy for children through literature and storytelling.</div>
+        </div>
+        <a class="brochure-dl-btn" href="https://drive.google.com/file/d/1tnPdvWSEKUhAosBWaeAJ69RzYu1aSgoj/view?usp=drive_link" target="_blank">View PDF &#8599;</a>
+      </div>
+
+      <div class="brochure-card">
+        <div class="brochure-card-icon">&#128196;</div>
+        <div class="brochure-card-body">
+          <div class="brochure-card-title">AWIC Brochure</div>
+          <div class="brochure-card-desc">Overview of AWIC's mission, membership, and activities as India's foremost children's literature body.</div>
+        </div>
+        <a class="brochure-dl-btn" href="https://drive.google.com/file/d/1NXHzg8_5eMEXGi1m_jBpczaDONoiu_0L/view?usp=drive_link" target="_blank">View PDF &#8599;</a>
+      </div>
+
+      <div class="brochure-card">
+        <div class="brochure-card-icon">&#128214;</div>
+        <div class="brochure-card-body">
+          <div class="brochure-card-title">AWIC Literacy Project</div>
+          <div class="brochure-card-desc">Details of AWIC's literacy initiatives and outreach programmes across India.</div>
+        </div>
+        <a class="brochure-dl-btn" href="https://drive.google.com/file/d/1Zk3fIECFLtrVf3vqiS6FZWaf1aLYtZz3/view?usp=drive_link" target="_blank">View PDF &#8599;</a>
+      </div>
+
+      <div class="brochure-card">
+        <div class="brochure-card-icon">&#127942;</div>
+        <div class="brochure-card-body">
+          <div class="brochure-card-title">AWIC Milestones</div>
+          <div class="brochure-card-desc">A chronicle of AWIC's achievements, awards, and key moments since 1975.</div>
+        </div>
+        <a class="brochure-dl-btn" href="https://drive.google.com/file/d/13LyvkRGy2xbHLVjqa6KE2dpfTVXHgzfC/view?usp=drive_link" target="_blank">View PDF &#8599;</a>
+      </div>
+
+      <div class="brochure-card">
+        <div class="brochure-card-icon">&#128081;</div>
+        <div class="brochure-card-body">
+          <div class="brochure-card-title">Library Brochure</div>
+          <div class="brochure-card-desc">The AWIC Children's Library Project — winner of the IBBY-Asahi Reading Promotion Award 1991.</div>
+        </div>
+        <a class="brochure-dl-btn" href="https://drive.google.com/file/d/1snnCAZeo4pqfEDoA2FX5INsECE8Y-Po2/view?usp=drive_link" target="_blank">View PDF &#8599;</a>
+      </div>
+
+      <div class="brochure-card">
+        <div class="brochure-card-icon">&#128240;</div>
+        <div class="brochure-card-body">
+          <div class="brochure-card-title">Publication Brochure</div>
+          <div class="brochure-card-desc">Catalogue of AWIC's published works, journals, and editorial contributions.</div>
+        </div>
+        <a class="brochure-dl-btn" href="https://drive.google.com/file/d/1YksRxya2K3hluxCFF79Ciwy1CZ_Q73gf/view?usp=drive_link" target="_blank">View PDF &#8599;</a>
+      </div>
+
     </div>
-    <button class="btn-outline" onclick="alert('Brochure PDF link coming soon!')">View Brochure &#8595;</button>
   </div>
 </div>
 
@@ -355,7 +439,7 @@
       </div>
       <div class="contact-detail">
         <div class="contact-icon">&#9993;</div>
-        <div class="contact-text"><strong>Email</strong><span>info@awic.in</span></div>
+        <div class="contact-text"><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7c15121a133c1d0b151f521512">[email&#160;protected]</a></span></div>
       </div>
     </div>
     <div class="contact-card">
@@ -369,7 +453,7 @@
 
 <footer>&#169; 2024 <span>AWIC</span> &#8212; Association of Writers &amp; Illustrators for Children. All rights reserved.</footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ════════════════════════════════════════════════
 // ARTICLE DATA — all years
 // ════════════════════════════════════════════════
@@ -789,11 +873,4 @@ document.addEventListener('keydown', function(e) {
 // DOWNLOAD ALL PHOTOS
 // ════════════════════════════════════════════════
 function downloadAll() {
-  if (!confirm('This will open ' + imageIds.length + ' download links.\nMake sure pop-ups are allowed.\n\nProceed?')) return;
-  imageIds.forEach(function(id, i) {
-    setTimeout(function() { window.open('https://drive.google.com/uc?export=download&id=' + id, '_blank'); }, i * 250);
-  });
-}
-</script>
-</body>
-</html>
+  if (!confirm('This will open ' + imageIds.length + ' download links.\nMake sure pop-ups are
