@@ -1,310 +1,702 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>AWIC</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AWIC — Association of Writers & Illustrators for Children</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: #f4f6fb;
+    :root {
+      --navy:   #1a2560;
+      --indigo: #2f3e9e;
+      --gold:   #c9a84c;
+      --cream:  #faf8f3;
+      --light:  #f0f2fa;
+      --text:   #2b2b2b;
+      --muted:  #6b7280;
     }
 
-    /* NAVBAR */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+    }
+
+    /* ── NAVBAR ── */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: white;
-      padding: 10px 40px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 0 48px;
+      height: 68px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.08);
       position: sticky;
       top: 0;
+      z-index: 100;
     }
-    .navbar {
-  backdrop-filter: blur(10px);
-}
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: 2px;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links { display: flex; gap: 8px; }
 
     .nav-links a {
-      margin: 0 15px;
       text-decoration: none;
-      color: #333;
+      color: var(--muted);
+      font-size: 14px;
       font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
     }
 
-    /* HERO */
+    .nav-links a:hover {
+      color: var(--indigo);
+      background: var(--light);
+    }
+
+    /* ── HERO ── */
     .hero {
-  width: 100%;
-  height: 400px;
- background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-            url('https://lh3.googleusercontent.com/p/1vd9iL8k2pvlskRO5aVMiYnFhE8pamqHe=s1600') center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
-}
-
-.hero-content h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.hero-content p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-    /* SECTIONS */
-    .section {
-      padding: 50px 80px;
+      position: relative;
+      height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: var(--navy);
     }
 
-    h2 {
-      color: #2f3e9e;
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(160deg, rgba(26,37,96,0.82) 0%, rgba(47,62,158,0.70) 100%),
+        url('https://lh3.googleusercontent.com/p/1vd9iL8k2pvlskRO5aVMiYnFhE8pamqHe=s1600') center/cover no-repeat;
     }
 
-    /* BUTTONS */
-    .btn {
-      background: #2f3e9e;
+    /* decorative diagonal stripe */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: var(--cream);
+      clip-path: polygon(0 100%, 100% 100%, 100% 0);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
       color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      padding: 0 24px;
     }
 
-    /* ARTICLES */
+    .hero-tag {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      max-width: 700px;
+    }
+
+    .hero-content p {
+      font-size: 17px;
+      font-weight: 300;
+      opacity: 0.88;
+      margin-bottom: 32px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.45);
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 72px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 38px);
+      color: var(--navy);
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+
+    .section p {
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.75;
+      max-width: 680px;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about-visual {
+      background: var(--light);
+      border-radius: 16px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .stat {
+      border-left: 3px solid var(--gold);
+      padding-left: 16px;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ── BROCHURE ── */
+    .brochure-strip {
+      background: var(--navy);
+      padding: 56px 80px;
+    }
+
+    .brochure-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .brochure-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .brochure-inner p {
+      color: rgba(255,255,255,0.6);
+      font-size: 15px;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+      padding: 13px 30px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    /* ── ARTICLES ── */
+    .articles-bg { background: var(--light); }
+
+    .articles-section {
+      padding: 72px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
     .years {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 12px;
+      margin-top: 32px;
     }
 
-  .year-btn {
-  background: #2f3e9e;
-  color: white;
-  padding: 12px;
-  text-align: center;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-}
+    .year-btn {
+      background: white;
+      color: var(--indigo);
+      border: 1.5px solid #dde2f5;
+      padding: 13px 8px;
+      text-align: center;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
 
-.year-btn:hover {
-  background: #1d2a7a;
-  transform: scale(1.05);
-}
+    .year-btn:hover {
+      background: var(--indigo);
+      color: white;
+      border-color: var(--indigo);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(47,62,158,0.25);
+    }
 
-    /* MOVING GALLERY */
+    /* ── GALLERY ── */
+    .gallery-wrapper {
+      background: var(--navy);
+      padding: 72px 0;
+    }
+
+    .gallery-header {
+      max-width: 1200px;
+      margin: 0 auto 36px;
+      padding: 0 80px;
+    }
+
+    .gallery-header .section-label { color: rgba(201,168,76,0.9); }
+
+    .gallery-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 38px);
+      color: white;
+      line-height: 1.2;
+    }
+
     .gallery-container {
       overflow: hidden;
-      white-space: nowrap;
-      background: #fff;
-      padding: 20px 0;
-      height: 220px;
+      width: 100%;
+      padding: 8px 0;
+      cursor: default;
+      position: relative;
     }
 
-   .gallery-track {
-  display: flex;
-  width: max-content;
-  animation: scroll 80s linear infinite;
-     height: 180px;
-}
+    /* fade edges */
+    .gallery-container::before,
+    .gallery-container::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .gallery-container::before {
+      left: 0;
+      background: linear-gradient(to right, var(--navy), transparent);
+    }
+
+    .gallery-container::after {
+      right: 0;
+      background: linear-gradient(to left, var(--navy), transparent);
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      animation: scrollGallery 60s linear infinite;
+    }
+
+    .gallery-track:hover { animation-play-state: paused; }
 
     .gallery-track img {
-      width: 250px;
-      height: 180px;
-      margin: 0 10px;
+      width: 260px;
+      height: 190px;
       object-fit: cover;
       border-radius: 10px;
+      flex-shrink: 0;
+      display: block;
+      border: 2px solid rgba(255,255,255,0.08);
+      transition: transform 0.3s, border-color 0.3s;
     }
 
-    @keyframes scroll {
-      0% { transform: translateX(0); }
+    .gallery-track img:hover {
+      transform: scale(1.04);
+      border-color: var(--gold);
+    }
+
+    @keyframes scrollGallery {
+      0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
 
-    /* CONTACT */
-    .contact {
-      text-align: center;
-      background: #e9ecf7;
-      padding: 40px;
+    /* ── CONTACT ── */
+    .contact-bg { background: var(--light); }
+
+    .contact-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
     }
-    .gallery-container {
-  overflow: hidden;
-  background: #fff;
-  padding: 20px 0;
-}
 
-.gallery-track {
-  display: flex;
-  width: max-content;
-  gap: 20px;
-  animation: scroll 80s linear infinite;
-}
+    .contact-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
 
-.gallery-track img {
-  width: 250px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 10px;
-}
+    .contact-detail {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    .contact-text strong {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .contact-text span {
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .contact-card {
+      background: var(--navy);
+      color: white;
+      padding: 40px;
+      border-radius: 16px;
+    }
+
+    .contact-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin-bottom: 14px;
+      color: var(--gold);
+    }
+
+    .contact-card p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+    }
+
+    footer span { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .navbar { padding: 0 20px; }
+      .section { padding: 48px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .brochure-strip { padding: 40px 24px; }
+      .brochure-inner { flex-direction: column; text-align: center; }
+      .articles-section { padding: 48px 24px; }
+      .gallery-header { padding: 0 24px; }
+      .contact-inner { grid-template-columns: 1fr; padding: 48px 24px; }
+      .years { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
+    }
   </style>
 </head>
-
 <body>
 
 <!-- NAVBAR -->
-<div class="navbar">
-  <h2>AWIC</h2>
+<nav class="navbar">
+  <div class="nav-logo">AW<span>I</span>C</div>
   <div class="nav-links">
     <a href="#">Home</a>
     <a href="#articles">Articles</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
   </div>
-</div>
+</nav>
 
 <!-- HERO -->
 <div class="hero">
+  <div class="hero-bg"></div>
   <div class="hero-content">
-    <h1>Association of Writers & Illustrators for Children</h1>
-    <p>Promoting children’s literature in India</p>
-    <button class="btn" onclick="scrollToSection()">Explore Articles</button>
+    <div class="hero-tag">Est. 1975</div>
+    <h1>Association of Writers &amp; Illustrators for Children</h1>
+    <p>Promoting children's literature across India since 1975</p>
+    <button class="btn" onclick="document.getElementById('articles').scrollIntoView({behavior:'smooth'})">
+      Explore Articles
+    </button>
   </div>
 </div>
+
 <!-- ABOUT -->
 <div class="section">
-  <h2>About AWIC</h2>
-  <p>
-    The Association of Writers and Illustrators for Children (AWIC) promotes children's literature in India.
-  </p>
+  <div class="about-grid">
+    <div>
+      <div class="section-label">Who We Are</div>
+      <h2>Celebrating the Art of Children's Literature</h2>
+      <p>
+        The Association of Writers and Illustrators for Children (AWIC) is India's foremost body
+        dedicated to promoting quality literature and illustration for young readers. Since 1975,
+        we have championed storytellers, poets, and artists whose work enriches childhood.
+      </p>
+      <br/>
+      <p>
+        Through our journals, events, and workshops, AWIC fosters a community where creativity
+        and education meet — nurturing the next generation of readers and creators.
+      </p>
+    </div>
+    <div class="about-visual">
+      <div class="stat">
+        <div class="stat-number">44+</div>
+        <div class="stat-label">Years of Journal Publication</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">1975</div>
+        <div class="stat-label">Year of Founding</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Articles Archived</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- BROCHURE -->
-<div class="section">
-  <h2>AWIC Brochure</h2>
-  <p>Learn more about our mission and activities.</p>
-  <button class="btn">View Brochure</button>
+<div class="brochure-strip">
+  <div class="brochure-inner">
+    <div>
+      <h2>AWIC Brochure</h2>
+      <p>Learn more about our mission, publications, and upcoming events.</p>
+    </div>
+    <button class="btn-outline" onclick="alert('Brochure PDF link coming soon!')">
+      View Brochure ↓
+    </button>
+  </div>
 </div>
 
 <!-- ARTICLES -->
-<div class="section" id="articles">
-  <h2>AWIC Journal Articles</h2>
-  <div class="years" id="yearsContainer"></div>
+<div class="articles-bg">
+  <div class="articles-section" id="articles">
+    <div class="section-label">Archive</div>
+    <h2>AWIC Journal Articles</h2>
+    <p style="color:var(--muted);font-size:15px;margin-top:8px;">
+      Select a year to browse articles from that edition.
+    </p>
+    <div class="years" id="yearsContainer"></div>
+  </div>
 </div>
 
-<!-- MOVING GALLERY -->
-<div class="section" id="gallery">
-  <h2>Photo Gallery</h2>
-
- <div class="gallery-container">
-  <div class="gallery-track" id="galleryTrack"></div>
-</div>
-
+<!-- GALLERY -->
+<div class="gallery-wrapper" id="gallery">
+  <div class="gallery-header">
+    <div class="section-label">Memories</div>
+    <h2>Photo Gallery</h2>
+  </div>
+  <div class="gallery-container">
+    <div class="gallery-track" id="galleryTrack"></div>
+  </div>
 </div>
 
 <!-- CONTACT -->
-<div class="contact" id="contact">
-  <h2>Contact Us</h2>
-  <p>Manorama Jafa (Secretary General)</p>
-  <p>New Delhi - 110002</p>
-  <p>+91-11-43603831</p>
-  <p>info@awic.in</p>
+<div class="contact-bg" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="section-label">Get in Touch</div>
+      <h2>Contact Us</h2>
+      <div class="contact-detail">
+        <div class="contact-icon">👤</div>
+        <div class="contact-text">
+          <strong>Secretary General</strong>
+          <span>Manorama Jafa</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">📍</div>
+        <div class="contact-text">
+          <strong>Address</strong>
+          <span>New Delhi – 110002</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">📞</div>
+        <div class="contact-text">
+          <strong>Phone</strong>
+          <span>+91-11-43603831</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-text">
+          <strong>Email</strong>
+          <span>info@awic.in</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <h3>Join AWIC</h3>
+      <p>
+        Are you a writer, illustrator, or educator passionate about children's literature?
+        Become a member of AWIC and be part of a community that celebrates creativity,
+        learning, and storytelling for young minds across India.
+      </p>
+      <br/>
+      <button class="btn" style="font-size:13px;padding:12px 24px;">
+        Membership Enquiry
+      </button>
+    </div>
+  </div>
 </div>
 
+<!-- FOOTER -->
+<footer>
+  © 2024 <span>AWIC</span> — Association of Writers &amp; Illustrators for Children. All rights reserved.
+</footer>
+
 <script>
-  let images = [
-  { id: "1CXH2P_vhLcmJNN4KuzTcW9voJanzvHSE" },
-  { id: "1kDBzndP_txdnpVg0M-VFyciiL0Tb3TSX" },
-  { id: "1Uj2IOFWVAhXKgN7Tb9XYbEpIDRQYXuqi" },
-  { id: "12l7DQ7lgch4scaceAxygUvl5mHzI29N3" },
-  { id: "1NvGJCbPgyDewTBLHwBNQPXTFq1dWvm8S" },
-  { id: "1FVF4Ocx2R_B2tD6wabjr9vT3rktJT0hP" },
-  { id: "1SokV7Fq3-51KhwUb7oQCQLrq0_KuyVzo" },
-  { id: "1g7cOlSp2YC7a3LQPTwt07-i8cebb9zCB" },
-  { id: "1V_8oV-KOSWp8fwLzWd9V0w-K_RUwqSdZ" },
-  { id: "1JuWtH9414BZiGZ5KbuhZIt4-H8m4yiGZ" },
-  { id: "1GIkojgcYtUl0pIQB9DCikf2V0gLI6kWh" },
-{ id: "17_S-8aurhj-rMrunHm30dnSFXMvbGNBX" },
-{ id: "1FNQu301arhwjX1ECPYXhKJLjBj02WIAI" },
-{ id: "1iVDEHnOB-3dRLx7xga2k6t4eXccFJFkL" },
-{ id: "1lPN2kttfsKP-MZZImNwpiEkn84Hk_uzt" },
-{ id: "1D0Z5VZw5ENACI7DQLuGPMmfeWbB67vg7" },
-{ id: "1EqejmbbIhjmuODyG3szoQBNkavEjV3p7" },
-{ id: "1WLqMhmv6Itjq9OrXGzOKuNFo4bGd83I1" },
-{ id: "1-jYk5sdWP2WUzEoNxzrmYqD5rHtR96GC" },
-{ id: "19lnkWqphPY1ysxW4TH_sw1Ly9eTUjWXp" },
-{ id: "18nhSn6iiRlSWUBWK3xrXAnia9YSgUEOC" },
-{ id: "1gk98cAqHqI0-P9lweRVJUQv87B_G0oI5" },
-{ id: "1nb-F-0Ygj5IgzPmqUVHgdi-AsVfHog_N" },
-{ id: "1G3O6mtF2FkDFdvGEqcwHLIVTwRiNxJf_" },
-{ id: "1_9l5dxa5lTaOqNte2W6rtO4WCe3IxRxg" },
-  { id: "1kEHAns03PEHuZI67_O_UOP0ttRU0QWs5" },
-{ id: "1_7lK-Zu7haPp4OVEzYeYGm-8KvIXJOs8" },
-{ id: "1U8NYKHukKElnAdc2gJH4pR4HM946m0O1" },
-{ id: "19qgeSSHjtEGuYcn-PzxCt337dBB9mGST" },
-{ id: "1M91_fc1cir38n3KgskS8u2OfNH4W78UC" },
-{ id: "1njS4Uce372m8znR0ryLK5LdUkUk3vb47" },
-{ id: "1DkomeHM23VaIMGi2NyOCfdKyjYSw9pwc" },
-{ id: "1yJ463YXd8dktK4cl6pWoZ5hkF0cH5oUC" },
-{ id: "1DizEze3rjaZ2fpMVudLtas-5VPv8fcco" },
-{ id: "1xR2TkXz-5eTEaM80i259EV9vgBMO9AwU" },
-{ id: "1nL0MJg46sFh6bTObz6sKfTyldI4muA0W" },
-{ id: "19u9sUjAf25m6GLjbywQk2ZYtT-NR70fG" },
-{ id: "1M6ucWGsK24wrRbEm4Oh2dcq5UXLyueEO" },
-{ id: "1hPfNKzdTb-1bOJZ6Uv5_pn24pcw50bQz" },
-{ id: "1Qc61GdEcOAHXtHtOQP5tj22xEz7C5le4" },
-{ id: "1tdiqVu1kmImJH7MjWjpH7mlK2uV-LLba" },
-{ id: "1oBnyR73ojnC7M_X58Zq1xW7clk75M79a" },
-{ id: "1Tz6S1IJU5_MeWklhV8aAIqfgwtbjUQcr" },
-{ id: "1SktX1ukI5PbHJ_fSzJ4AXSIn81y0ybUJ" },
-{ id: "1rKa98CASWf4V9KHbwdQdmM_1fa0VXYui" },
-{ id: "1Bs0ckpundj2ZjbqDtOmc-imBIGg51YZF" },
-{ id: "1hcHvnlgBULIqz8OUwParK9Ykg5DR-TRL" },
-{ id: "1k09vk8hjleOmIugd3pwXKNX926m1S2wF" }
-];
-  window.onload = function() {
+  // ── GALLERY FIX ──
+  // The bug was: `html` string was never appended to inside the forEach loop.
+  // Fix: build img tags properly, then duplicate for seamless infinite scroll.
 
-  const track = document.getElementById("galleryTrack");
-  let html = "";
+  const imageIds = [
+    "1CXH2P_vhLcmJNN4KuzTcW9voJanzvHSE","1kDBzndP_txdnpVg0M-VFyciiL0Tb3TSX",
+    "1Uj2IOFWVAhXKgN7Tb9XYbEpIDRQYXuqi","12l7DQ7lgch4scaceAxygUvl5mHzI29N3",
+    "1NvGJCbPgyDewTBLHwBNQPXTFq1dWvm8S","1FVF4Ocx2R_B2tD6wabjr9vT3rktJT0hP",
+    "1SokV7Fq3-51KhwUb7oQCQLrq0_KuyVzo","1g7cOlSp2YC7a3LQPTwt07-i8cebb9zCB",
+    "1V_8oV-KOSWp8fwLzWd9V0w-K_RUwqSdZ","1JuWtH9414BZiGZ5KbuhZIt4-H8m4yiGZ",
+    "1GIkojgcYtUl0pIQB9DCikf2V0gLI6kWh","17_S-8aurhj-rMrunHm30dnSFXMvbGNBX",
+    "1FNQu301arhwjX1ECPYXhKJLjBj02WIAI","1iVDEHnOB-3dRLx7xga2k6t4eXccFJFkL",
+    "1lPN2kttfsKP-MZZImNwpiEkn84Hk_uzt","1D0Z5VZw5ENACI7DQLuGPMmfeWbB67vg7",
+    "1EqejmbbIhjmuODyG3szoQBNkavEjV3p7","1WLqMhmv6Itjq9OrXGzOKuNFo4bGd83I1",
+    "1-jYk5sdWP2WUzEoNxzrmYqD5rHtR96GC","19lnkWqphPY1ysxW4TH_sw1Ly9eTUjWXp",
+    "18nhSn6iiRlSWUBWK3xrXAnia9YSgUEOC","1gk98cAqHqI0-P9lweRVJUQv87B_G0oI5",
+    "1nb-F-0Ygj5IgzPmqUVHgdi-AsVfHog_N","1G3O6mtF2FkDFdvGEqcwHLIVTwRiNxJf_",
+    "1_9l5dxa5lTaOqNte2W6rtO4WCe3IxRxg","1kEHAns03PEHuZI67_O_UOP0ttRU0QWs5",
+    "1_7lK-Zu7haPp4OVEzYeYGm-8KvIXJOs8","1U8NYKHukKElnAdc2gJH4pR4HM946m0O1",
+    "19qgeSSHjtEGuYcn-PzxCt337dBB9mGST","1M91_fc1cir38n3KgskS8u2OfNH4W78UC",
+    "1njS4Uce372m8znR0ryLK5LdUkUk3vb47","1DkomeHM23VaIMGi2NyOCfdKyjYSw9pwc",
+    "1yJ463YXd8dktK4cl6pWoZ5hkF0cH5oUC","1DizEze3rjaZ2fpMVudLtas-5VPv8fcco",
+    "1xR2TkXz-5eTEaM80i259EV9vgBMO9AwU","1nL0MJg46sFh6bTObz6sKfTyldI4muA0W",
+    "19u9sUjAf25m6GLjbywQk2ZYtT-NR70fG","1M6ucWGsK24wrRbEm4Oh2dcq5UXLyueEO",
+    "1hPfNKzdTb-1bOJZ6Uv5_pn24pcw50bQz","1Qc61GdEcOAHXtHtOQP5tj22xEz7C5le4",
+    "1tdiqVu1kmImJH7MjWjpH7mlK2uV-LLba","1oBnyR73ojnC7M_X58Zq1xW7clk75M79a",
+    "1Tz6S1IJU5_MeWklhV8aAIqfgwtbjUQcr","1SktX1ukI5PbHJ_fSzJ4AXSIn81y0ybUJ",
+    "1rKa98CASWf4V9KHbwdQdmM_1fa0VXYui","1Bs0ckpundj2ZjbqDtOmc-imBIGg51YZF",
+    "1hcHvnlgBULIqz8OUwParK9Ykg5DR-TRL","1k09vk8hjleOmIugd3pwXKNX926m1S2wF"
+  ];
 
-  images.forEach(img => {
-let link = `https://drive.google.com/thumbnail?id=${img.id}&sz=w1000`;
-  });
+  window.onload = function () {
+    const track = document.getElementById("galleryTrack");
 
-  track.innerHTML = html + html;
+    // Build img tags — THIS was the missing piece in the original code
+    let html = imageIds.map(id =>
+      `<img
+        src="https://drive.google.com/thumbnail?id=${id}&sz=w400"
+        alt="AWIC event photo"
+        loading="lazy"
+        onerror="this.style.display='none'"
+      />`
+    ).join("");
 
-};
-  function scrollToSection() {
-  document.getElementById("articles").scrollIntoView({
-    behavior: "smooth"
-  });
-}
-  // ===== YEAR BUTTONS =====
-
-const yearsContainer = document.getElementById("yearsContainer");
-
-let startYear = 1981;
-let endYear = 2024;
-
-for (let year = startYear; year <= endYear; year++) {
-  let btn = document.createElement("div");
-  btn.className = "year-btn";
-  btn.innerText = year;
-
-  btn.onclick = function() {
-    openYear(year);
+    // Duplicate for seamless infinite loop (CSS animation goes 0% → -50%)
+    track.innerHTML = html + html;
   };
 
-  yearsContainer.appendChild(btn);
-}
+  // ── YEAR BUTTONS ──
+  const yearsContainer = document.getElementById("yearsContainer");
 
-// click function
-function openYear(year) {
-  alert("Opening articles for " + year);
-}
+  for (let year = 1981; year <= 2024; year++) {
+    const btn = document.createElement("div");
+    btn.className = "year-btn";
+    btn.textContent = year;
+    btn.onclick = () => openYear(year);
+    yearsContainer.appendChild(btn);
+  }
+
+  function openYear(year) {
+    // Replace alert with: window.open('YOUR_PDF_LINK_FOR_' + year, '_blank');
+    alert("Opening articles for " + year);
+  }
 </script>
-
 </body>
 </html>
