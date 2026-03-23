@@ -296,7 +296,7 @@
 <div class="page-hero">
   <div class="hero-year-bg" id="heroBgYear"></div>
   <div class="hero-tag">Journal Archive</div>
-  <h1 id="heroTitle">Loading…</h1>
+  <h1 id="heroTitle">&nbsp;</h1>
   <p id="heroSubtitle"></p>
 </div>
 
@@ -582,6 +582,11 @@ const allData = {
 const params = new URLSearchParams(window.location.search);
 const year = params.get("year") || "";
 
+// If no year param at all, redirect home
+if (!year) {
+  window.location.href = "index.html";
+}
+
 // Set hero
 document.getElementById("heroTitle").textContent = year + " Journal Articles";
 document.getElementById("heroBgYear").textContent = year;
@@ -589,18 +594,18 @@ document.getElementById("heroSubtitle").textContent =
   "Browse and download archived journal articles from " + year + ".";
 
 // Update page title
-document.title = "AWIC — " + year + " Articles";
+document.title = "AWIC \u2014 " + year + " Articles";
 
 const data = allData[year];
 const listEl = document.getElementById("articleList");
 
 if (!data || data.length === 0) {
-  listEl.innerHTML = `
-    <div class="no-data">
-      <h2>No articles found for ${year}</h2>
-      <p>Articles for this year have not been added yet, or this year is outside the available archive.</p>
-      <a href="index.html">← Back to Home</a>
-    </div>`;
+  listEl.innerHTML =
+    '<div class="no-data">' +
+      '<h2>Articles for ' + year + ' coming soon</h2>' +
+      '<p>We are currently digitising articles from this year. Check back later.</p>' +
+      '<a href="index.html">\u2190 Back to Home</a>' +
+    '</div>';
 } else {
   // Count total articles
   const total = data.reduce((sum, s) => sum + s.files.length, 0);
