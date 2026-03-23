@@ -453,7 +453,7 @@
 
 <footer>&#169; 2024 <span>AWIC</span> &#8212; Association of Writers &amp; Illustrators for Children. All rights reserved.</footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ════════════════════════════════════════════════
 // ARTICLE DATA — all years
 // ════════════════════════════════════════════════
@@ -830,14 +830,16 @@ const imageIds = [
 ];
 
 window.onload = function() {
-  const track = document.getElementById('galleryTrack');
-  const html = imageIds.map(function(id, i) {
-    return '<div class="gallery-item" onclick="openLightbox(' + i + ')">' +
-      '<img src="https://drive.google.com/thumbnail?id=' + id + '&sz=w400" alt="AWIC photo" loading="lazy" onerror="this.parentElement.style.display='none'"/>' +
+  var track = document.getElementById('galleryTrack');
+  var items = '';
+  for (var i = 0; i < imageIds.length; i++) {
+    var id = imageIds[i];
+    items += '<div class="gallery-item" onclick="openLightbox(' + i + ')">' +
+      '<img src="https://drive.google.com/thumbnail?id=' + id + '&sz=w400" alt="AWIC photo" loading="lazy"/>' +
       '<div class="gallery-item-overlay"><span class="overlay-view-btn">&#128269; View</span></div>' +
-    '</div>';
-  }).join('');
-  track.innerHTML = html + html;
+      '</div>';
+  }
+  track.innerHTML = items + items;
 };
 
 // ════════════════════════════════════════════════
@@ -873,4 +875,13 @@ document.addEventListener('keydown', function(e) {
 // DOWNLOAD ALL PHOTOS
 // ════════════════════════════════════════════════
 function downloadAll() {
-  if (!confirm('This will open ' + imageIds.length + ' download links.\nMake sure pop-ups are
+  if (!confirm('This will open ' + imageIds.length + ' download links.\nMake sure pop-ups are allowed.\n\nProceed?')) return;
+  imageIds.forEach(function(id, i) {
+    setTimeout(function() {
+      window.open('https://drive.google.com/uc?export=download&id=' + id, '_blank');
+    }, i * 250);
+  });
+}
+</script>
+</body>
+</html>
